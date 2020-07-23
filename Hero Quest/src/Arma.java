@@ -8,7 +8,6 @@ public class Arma extends Item{
 		this.bonusDados = bonusDado;
 		this.ehDestruida = ehDestruida;
 	}
-	
 	public int getBonusDado() {
 		return this.bonusDados;
 	}

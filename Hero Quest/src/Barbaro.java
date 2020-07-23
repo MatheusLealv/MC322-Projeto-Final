@@ -7,4 +7,5 @@ public class Barbaro extends Heroi{
 		addArma(new EspadaLonga());
 	}
 	
+	
 }
