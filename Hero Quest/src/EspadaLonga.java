@@ -1,8 +1,8 @@
 
 public class EspadaLonga extends Arma{
 
-	public EspadaLonga(int bonusDado) {
-		super(bonusDado, 2,  false);
+	public EspadaLonga() {
+		super(3, 2, false);
 	}
 
 }

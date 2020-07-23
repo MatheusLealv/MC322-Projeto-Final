@@ -1,8 +1,8 @@
 
 public class EspadaCurta extends Arma{
 
-	public EspadaCurta(int bonusDado, int alcance, boolean ehDestruida) {
-		super(bonusDado, alcance, ehDestruida);
+	public EspadaCurta(){
+		super(2, 1, false);
 	}
 
 }
