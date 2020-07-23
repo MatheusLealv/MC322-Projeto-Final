@@ -32,8 +32,32 @@ public class Heroi {
 	}
 	
 	public void removeArma(Arma arma) {
-		
+		//LEMBRAR DE MELHORAR
+		if(armas.contains(arma)) {
+			this.armas.remove(arma);
+		}
+		else {
+			System.out.println("Você não possui essa arma");
+		}
 	}
+	
+	public void atualizarArmadura(Armadura armadura) {
+		this.armadura = armadura;
+	}
+	//ATUALIZAR PONTOS DE INTELIGENCIA
+	public void atualizarPI(int pontosInteligencia) {
+		this.pontosInteligencia = pontosInteligencia;
+	}
+	//ATUALIZAR PONTOS DE VIDA
+	public void atualizarPV(int pontosVida) {
+		this.pontosVida = pontosVida;
+	}
+	public void atualizarAtaque(int numDadosAtaque) {
+		this.numDadosAtaque = numDadosAtaque;
+	}
+	public void atualizarDefesa(int numDadosDefesa) {
+		this.numDadosDefesa = numDadosDefesa;
+	}	
 	public String getNome() {
 		return this.nome;
 	}
