@@ -1,7 +1,7 @@
 
-public class Magia {
+public class Dados {
 
-	public Magia() {
+	public Dados() {
 		// TODO Auto-generated constructor stub
 	}
 
