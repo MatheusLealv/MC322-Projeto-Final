@@ -1,8 +1,8 @@
 
 public class Punhal extends Arma{
 
-	public Punhal(int bonusDado, int alcance, boolean ehDestruida) {
-		super(bonusDado, alcance, ehDestruida);
+	public Punhal() {
+		super(1, 3, true);
 	}
 	
 }
