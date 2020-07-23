@@ -6,6 +6,9 @@ public class Armadura extends Item{
 		this.defesa = defesa;
 	}
 	
+	public void updateDefesa(int defesa){
+		this.defesa = defesa;
+	}
 	public int getDefesa() {
 		return this.defesa;
 	}

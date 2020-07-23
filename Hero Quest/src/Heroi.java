@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Heroi {
 	private String nome;
@@ -5,14 +6,34 @@ public class Heroi {
 	private int numDadosDefesa;
 	private int pontosVida;
 	private int pontosInteligencia;
-	public Heroi(String nome, int numDadosAtaque, int numDadosDefesa, int pontosVida, int pontosInteligencia) {
+	
+	private Armadura armadura;
+	private ArrayList<Arma> armas = new ArrayList<Arma>();
+	
+	public Heroi(String nome, int numDadosAtaque, int numDadosDefesa, int pontosVida, int pontosInteligencia, ArrayList<Arma> armas) {
 		this.nome = nome;
 		this.numDadosAtaque = numDadosAtaque;
 		this.numDadosDefesa = numDadosDefesa;
 		this.pontosVida = pontosVida;
 		this.pontosInteligencia = pontosInteligencia;
+		this.armas = armas;
+		
+		//Criar uma armadura inutil
+		this.armadura = new Armadura(0);
 	}
 	
+	public void addArma(Arma arma) {
+		//LEMBRAR DE MELHORAR ISSO
+		if(armas.size() == 2) {
+			System.out.println("Você já possui duas armas");
+			return;
+		}
+		this.armas.add(arma);
+	}
+	
+	public void removeArma(Arma arma) {
+		
+	}
 	public String getNome() {
 		return this.nome;
 	}
@@ -27,5 +48,9 @@ public class Heroi {
 	}
 	public int getPontosInteligencia() {
 		return this.pontosInteligencia;
+	}
+	
+	public ArrayList<Arma> getArmas(){
+		return this.armas;
 	}
 }
