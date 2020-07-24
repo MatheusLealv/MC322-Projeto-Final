@@ -18,7 +18,7 @@ public class Mapa {
 				grid[i][j] = new CelulaVazia(i,j);
 			}
 		}
-		grid[2][4] = new Porta(i,j);
+		grid[2][4] = new Porta(2,4);
 		grid[0][0] = hero;
 		grid[0][2] = new Esqueleto(0,2);
 		grid[1][4] = new Esqueleto(1,4);
@@ -28,7 +28,7 @@ public class Mapa {
 				grid[i][j] = new CelulaVazia(i,j);
 			}
 		}
-		grid[2][9] = new Porta(i,j);
+		grid[2][9] = new Porta(2,9);
 		grid[0][8] = new Esqueleto(0,8);
 		grid[0][9] = new Goblin(0,9);
 		grid[1][9] = new Esqueleto(1,9);	
@@ -38,7 +38,7 @@ public class Mapa {
 				grid[i][j] = new CelulaVazia(i,j);
 			}
 		}
-		grid[2][14] = new Porta(i,j);
+		grid[2][14] = new Porta(2,14);
 		grid[0][13] = new Esqueleto(0,13);
 		grid[1][14] = new Esqueleto(1,14);
 		grid[4][13] = new EsqueletoMago(4,13);
