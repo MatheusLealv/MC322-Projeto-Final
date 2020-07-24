@@ -21,7 +21,7 @@ public class Magia {
 	
 	//O ALVO VAI TENTAR SE DEFENDER
 	//Retorna true se o alvo nao consegue se defender
-	public boolean realizarAtaque(Unit magico, Unit alvo) {
+	public boolean defenderAtaque(Unit magico, Unit alvo) {
 		int qtdDados = alvo.getPontosInteligencia();
 		for(int i = 0; i < qtdDados; i++) {
 			DadosCombat dado = new DadosCombat();
