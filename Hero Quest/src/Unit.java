@@ -38,9 +38,6 @@ public class Unit {
 		}
 	}
 	
-	public void atualizarArmadura(Armadura armadura) {
-		armadura = armadura;
-	}
 	//ATUALIZAR PONTOS DE INTELIGENCIA
 	public void atualizarPI(int pontosInteligencia) {
 		this.pontosInteligencia = pontosInteligencia;
