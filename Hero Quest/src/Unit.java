@@ -5,7 +5,7 @@ public class Unit extends Celula{
 	private int numDadosDefesa;
 	private int pontosVida;
 	private int pontosInteligencia;
-	//private Armadura armadura;
+	private Armadura armadura;
 	private ArrayList<Arma> armas = new ArrayList<Arma>();
 	private ArrayList<Magia> magias = new ArrayList<Magia>();
 	
@@ -17,25 +17,44 @@ public class Unit extends Celula{
 		this.pontosInteligencia = pontosInteligencia;
 		this.armas = armas;
 		this.magias = magias;
+		
+		this.armadura = new Armadura(0);
 	}
 	
 	public void addArma(Arma arma) {
 		//LEMBRAR DE MELHORAR ISSO
-		if(armas.size() == 2) {
-			System.out.println("Você já possui duas armas");
-			return;
+		if(!(arma instanceof Punhal)) {
+			if(armas.size() == 2) {
+				System.out.println("Você já possui duas armas");
+				return;
+			}
+			this.armas.add(arma);
+			this.numDadosAtaque += arma.getBonusDado();
 		}
-		this.armas.add(arma);
+		else {
+			armas.add(arma);
+		}
 	}
 	
 	public void removeArma(Arma arma) {
 		//LEMBRAR DE MELHORAR
-		if(armas.contains(arma)) {
-			this.armas.remove(arma);
+		if(! (arma instanceof Punhal)) {
+			if(armas.contains(arma)) {
+				this.armas.remove(arma);
+				this.numDadosAtaque -= arma.getBonusDado();
+			}
+			else {
+				System.out.println("Você não possui essa arma");
+			}
 		}
 		else {
-			System.out.println("Você não possui essa arma");
+			armas.remove(arma);
 		}
+	}
+	
+	public void trocarArmadura(Armadura armadura) {
+		this.numDadosDefesa += -this.armadura.getDefesa() + armadura.getDefesa();
+		this.armadura = armadura;
 	}
 	
 	public void addMagia(Magia magia) {

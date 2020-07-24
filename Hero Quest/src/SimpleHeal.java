@@ -11,6 +11,8 @@ public class SimpleHeal extends Magia{
 			
 			this.getMagico().aumentarVida(valorDado);
 		}
+		
+		this.magico.removeMagia(this);
 	}
 
 }

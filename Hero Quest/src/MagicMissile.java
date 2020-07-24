@@ -20,6 +20,8 @@ public class MagicMissile extends Magia{
 				alvo.diminuirVida(dano);
 			}
 		}
+		
+		this.magico.removeMagia(this);
 	}
 
 }
