@@ -1,17 +1,16 @@
 
 public class SimpleHeal extends Magia{
-	Unit magico;
 	public SimpleHeal(Unit magico) {
-		this.magico = magico;
+		super(magico);
 	}
 	
 	public void usarMagia() {
-		if(usarMagia(magico)) {
+		if(usarMagia(this.getMagico())) {
 			DadosRed dado = new DadosRed();
 			int valorDado = dado.roll();
 			
-			int pontosVida = magico.getPontosVida();
-			magico.atualizarPV(pontosVida + valorDado);
+			int pontosVida = this.getMagico().getPontosVida();
+			this.getMagico().atualizarPV(pontosVida + valorDado);
 		}
 	}
 
