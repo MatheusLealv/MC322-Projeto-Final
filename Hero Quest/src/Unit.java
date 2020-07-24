@@ -7,16 +7,16 @@ public class Unit extends Celula{
 	private int pontosInteligencia;
 	//private Armadura armadura;
 	private ArrayList<Arma> armas = new ArrayList<Arma>();
-	private ArrayList<Magia> magica = new ArrayList<Magia>();
+	private ArrayList<Magia> magias = new ArrayList<Magia>();
 	
-	public Unit(int numDadosAtaque, int numDadosDefesa, int pontosVida, int pontosInteligencia, ArrayList<Arma> armas, ArrayList<Magia> magica,int posx , int posy) {
+	public Unit(int numDadosAtaque, int numDadosDefesa, int pontosVida, int pontosInteligencia, ArrayList<Arma> armas, ArrayList<Magia> magias,int posx , int posy) {
 		super(posx, posy);
 		this.numDadosAtaque = numDadosAtaque;
 		this.numDadosDefesa = numDadosDefesa;
 		this.pontosVida = pontosVida;
 		this.pontosInteligencia = pontosInteligencia;
 		this.armas = armas;
-		this.magica = magica;
+		this.magias = magias;
 	}
 	
 	public void addArma(Arma arma) {
@@ -39,12 +39,12 @@ public class Unit extends Celula{
 	}
 	
 	public void addMagia(Magia magia) {
-		this.magica.add(magia);
+		this.magias.add(magia);
 	}
 	
 	public void removeMagia(Magia magia) {
-		if(magica.contains(magia)) {
-			this.magica.remove(magia);
+		if(magias.contains(magia)) {
+			this.magias.remove(magia);
 		}
 		else {
 			System.out.println("Você não possui essa arma");
@@ -55,26 +55,28 @@ public class Unit extends Celula{
 		
 	}
 	public void usarFireball(Unit enemy) {
-		for(Magia cur : magica) {
+		for(Magia cur : magias) {
 			if(cur instanceof Fireball) {
 				((Fireball) cur).setAlvo(enemy);
-				magica.remove(cur);
+				magias.remove(cur);
 				break ; 
 			}
 		}		
 	}
 	public void usarSimpleHeal() {
-		for(Magia cur : magica) {
+		for(Magia cur : magias) {
 			if(cur instanceof SimpleHeal) {
-				(())
+				((SimpleHeal) cur).usarMagia(this);
+				magias.remove(cur);
+				break ; 
 			}
 		}
 	}
 	public void usarMagicMissile(Unit enemy) {
-		for(Magia cur : magica) {
+		for(Magia cur : magias) {
 			if(cur instanceof MagicMissile) {
 				((MagicMissile) cur).setAlvo(enemy);
-				magica.remove(cur);
+				magias.remove(cur);
 				break ; 
 			}
 		}
