@@ -63,4 +63,12 @@ public class Mapa {
 	public int getM() {
 		return this.M;
 	}
+	
+	public Celula[][] getMapa(){
+		return this.grid;
+	}
+	
+	public Celula getCelula(int x, int y) {
+		return this.grid[x][y];
+	}
 }

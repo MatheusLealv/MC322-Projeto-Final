@@ -126,6 +126,7 @@ public class Unit extends Celula{
 	}
 	public void diminuirVida(int x) {
 		this.pontosVida -= x;
+		if(this.pontosVida < 0) this.pontosVida = 0;
 	}
 	
 	public int getNumDadosAtaque() {

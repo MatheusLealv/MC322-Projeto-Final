@@ -1,6 +1,6 @@
 
 public class Magia implements Item{
-	private Unit magico;
+	protected Unit magico;
 	public Magia(Unit magico) {
 		this.magico=magico;
 	}

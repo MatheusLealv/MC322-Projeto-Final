@@ -9,7 +9,6 @@ public class EsqueletoMago extends Monstro implements Magico{
 		
 		// adicionar magia
 		addMagia(new MagicMissile(this));
-		addMagia(new MagicMissile(this));
 	}
 	
 }
