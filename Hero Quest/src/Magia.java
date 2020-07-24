@@ -25,23 +25,21 @@ public class Magia implements Item{
 		
 		return false;
 	}
+	public void testarMagia() {
+		
+	}
 	
 	//O ALVO VAI TENTAR SE DEFENDER
 	//Retorna true se o alvo nao consegue se defender
-	public boolean defenderAtaque(Unit alvo) {
+	public int defenderMagia(Unit alvo) {
 		int qtdDados = alvo.getPontosInteligencia();
+		int qtdEscudo = 0;
 		for(int i = 0; i < qtdDados; i++) {
 			DadosCombat dado = new DadosCombat();
-			int valorDado = dado.roll();
-			
-			if((alvo instanceof Heroi) && (valorDado != 1)) {
-				return false;
-			}
-			
-			if((alvo instanceof Monstro) && valorDado != 2) {
-				return false;
+			if(dado.ehEscudo(alvo)) {
+				qtdEscudo ++;
 			}
 		}
-		return true;
+		return qtdEscudo;
 	}
 }

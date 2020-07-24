@@ -81,6 +81,30 @@ public class Unit extends Celula{
 			}
 		}
 	}
+	
+	public void combate(Unit enemy) {
+		DadosCombat dado = new DadosCombat();
+		int qtdCaveira = 0;
+		//ataque
+		for(int i = 0; i < this.numDadosAtaque; i++) {
+			if(dado.ehCaveira()) {
+				qtdCaveira ++;
+			}
+		}
+		
+		//o inimigo tentará se defender
+		int numDados = enemy.getNumDadosDefesa();
+		int qtdEscudo = 0;
+		for(int i = 0; i < numDados; i++) {
+			if(dado.ehEscudo(enemy)) {
+				qtdEscudo ++;
+			}
+		}
+		
+		int dano = qtdCaveira - qtdEscudo;
+		if(dano < 0) dano = 0;
+		enemy.diminuirVida(dano);
+	}
 	//ATUALIZAR PONTOS DE INTELIGENCIA
 	public void atualizarPI(int pontosInteligencia) {
 		this.pontosInteligencia = pontosInteligencia;

@@ -9,8 +9,7 @@ public class SimpleHeal extends Magia{
 			DadosRed dado = new DadosRed();
 			int valorDado = dado.roll();
 			
-			int pontosVida = this.getMagico().getPontosVida();
-			this.getMagico().atualizarPV(pontosVida + valorDado);
+			this.getMagico().aumentarVida(valorDado);
 		}
 	}
 

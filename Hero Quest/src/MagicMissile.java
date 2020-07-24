@@ -12,10 +12,13 @@ public class MagicMissile extends Magia{
 	
 	public void usarMagia() {
 		if(testarMagia(this.getMagico())) {
-			for(int i=0;i<3;i++) 
-				if(defenderAtaque(alvo)) {
-					alvo.diminuirVida(2);
+			for(int i=0;i<3;i++) {
+				int dano = 2 - this.defenderMagia(alvo);
+				if(dano < 0) {
+					dano = 0;
 				}
+				alvo.diminuirVida(dano);
+			}
 		}
 	}
 
