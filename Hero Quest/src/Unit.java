@@ -1,22 +1,20 @@
 import java.util.ArrayList;
 
-public class Unit {
+public class Unit extends Celula{
 	private int numDadosAtaque;
 	private int numDadosDefesa;
 	private int pontosVida;
 	private int pontosInteligencia;
-	
 	//private Armadura armadura;
 	private ArrayList<Arma> armas = new ArrayList<Arma>();
 	
-	public Unit(int numDadosAtaque, int numDadosDefesa, int pontosVida, int pontosInteligencia, ArrayList<Arma> armas) {
-		//this.nome = nome;
+	public Unit(int numDadosAtaque, int numDadosDefesa, int pontosVida, int pontosInteligencia, ArrayList<Arma> armas , int posx , int posy) {
+		super(posx, posy);
 		this.numDadosAtaque = numDadosAtaque;
 		this.numDadosDefesa = numDadosDefesa;
 		this.pontosVida = pontosVida;
 		this.pontosInteligencia = pontosInteligencia;
 		this.armas = armas;
-		
 	}
 	
 	public void addArma(Arma arma) {
