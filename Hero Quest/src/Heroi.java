@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 
 public class Heroi extends Unit {
 	private String nome;
@@ -12,6 +12,9 @@ public class Heroi extends Unit {
 	}
 	public String getNome() {
 		return this.nome;
+	}
+	public void diminuirVida(int x) {
+		this.atualizarPV(this.getPontosVida() - Math.max(0,x-this.armadura.getDefesa()));
 	}
 	public void atualizarArmadura(Armadura armadura) {
 		this.armadura = armadura;
