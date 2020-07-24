@@ -17,4 +17,5 @@ public class Heroi extends Unit {
 	public void atualizarArmadura(Armadura armadura) {
 		this.armadura = armadura;
 	}
+
 }

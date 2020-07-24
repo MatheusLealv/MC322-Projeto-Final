@@ -37,10 +37,7 @@ public class Unit {
 			System.out.println("Você não possui essa arma");
 		}
 	}
-	
-	public void atualizarArmadura(Armadura armadura) {
-		armadura = armadura;
-	}
+
 	//ATUALIZAR PONTOS DE INTELIGENCIA
 	public void atualizarPI(int pontosInteligencia) {
 		this.pontosInteligencia = pontosInteligencia;
@@ -55,6 +52,13 @@ public class Unit {
 	public void atualizarDefesa(int numDadosDefesa) {
 		this.numDadosDefesa = numDadosDefesa;
 	}	
+	
+	public void aumentarVida(int x) {
+		this.pontosVida += x;
+	}
+	public void diminuirVida(int x) {
+		this.pontosVida -= x;
+	}
 	
 	public int getNumDadosAtaque() {
 		return this.numDadosAtaque;
