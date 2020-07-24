@@ -89,6 +89,7 @@ public class Unit extends Celula{
 	public void atualizarPV(int pontosVida) {
 		this.pontosVida = pontosVida;
 	}
+	
 	public void atualizarAtaque(int numDadosAtaque) {
 		this.numDadosAtaque = numDadosAtaque;
 	}
