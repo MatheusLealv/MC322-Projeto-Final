@@ -1,9 +1,16 @@
 
 public class Fireball extends Magia{
-
+	private Unit alvo;
+	
 	public Fireball(Unit magico) {
 		super(magico);
-		// TODO Auto-generated constructor stub
 	}
-
+	
+	public void setAlvo(Unit alvo) { // mudar isso
+		this.alvo = alvo;
+	}
+	
+	public void usarMagia() {
+	
+	}
 }
