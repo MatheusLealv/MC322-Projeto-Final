@@ -82,16 +82,17 @@ public class Unit extends Celula{
 		}
 	}
 	
-	public void combate(Unit enemy) {
+	public void combate(Unit enemy,Arma arma) {
 		DadosCombat dado = new DadosCombat();
+		int dadosAtaque = this.numDadosAtaque;
 		int qtdCaveira = 0;
+		if(arma!=null) dadosAtaque+=arma.getBonusDado();
 		//ataque
-		for(int i = 0; i < this.numDadosAtaque; i++) {
+		for(int i = 0; i < dadosAtaque; i++) {
 			if(dado.ehCaveira()) {
 				qtdCaveira ++;
 			}
 		}
-		
 		//o inimigo tentará se defender
 		int numDados = enemy.getNumDadosDefesa();
 		int qtdEscudo = 0;
