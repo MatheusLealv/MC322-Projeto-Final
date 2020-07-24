@@ -1,5 +1,5 @@
 
-public class Arma extends Item{
+public class Arma implements Item{
 	private int bonusDados;
 	private int alcance;
 	private boolean ehDestruida;

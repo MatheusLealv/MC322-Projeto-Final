@@ -1,5 +1,5 @@
 
-public class Armadura extends Item{
+public class Armadura implements Item{
 	private int defesa;
 	
 	public Armadura(int defesa) {

@@ -1,5 +1,5 @@
 
-public class Magia {
+public class Magia implements Item{
 	private Unit magico;
 	public Magia(Unit magico) {
 		this.magico=magico;
