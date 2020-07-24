@@ -66,7 +66,7 @@ public class Unit extends Celula{
 	public void usarSimpleHeal() {
 		for(Magia cur : magias) {
 			if(cur instanceof SimpleHeal) {
-				((SimpleHeal) cur).usarMagia(this);
+				((SimpleHeal) cur).usarMagia();
 				magias.remove(cur);
 				break ; 
 			}

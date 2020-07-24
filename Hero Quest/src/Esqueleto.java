@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Esqueleto extends Monstro{
 	public Esqueleto(int posx, int posy) {
-		super(1, 1, 3, 1, new ArrayList<Arma>(), posx, posy);
+		super(1, 1, 3, 1, new ArrayList<Arma>(), new ArrayList<Magia>(), posx, posy);
 		Random rng = new Random();
 		int u = rng.nextInt(3) + 1;
 		if(u == 1) {

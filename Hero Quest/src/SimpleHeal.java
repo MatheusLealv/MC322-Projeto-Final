@@ -5,7 +5,7 @@ public class SimpleHeal extends Magia{
 	}
 	
 	public void usarMagia() {
-		if(usarMagia(this.getMagico())) {
+		if(testarMagia(this.getMagico())) {
 			DadosRed dado = new DadosRed();
 			int valorDado = dado.roll();
 			

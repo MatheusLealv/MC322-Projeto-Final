@@ -10,7 +10,7 @@ public class Magia implements Item{
 	}
 	// MAGICO TENTA ATACAR O ALVO
 	// RETORNA TRUE se magico consegue atacar o alvo
-	public boolean usarMagia(Unit magico) {
+	public boolean testarMagia(Unit magico) {
 		if(magico instanceof Magico) {
 			DadosRed dado = new DadosRed();
 			int valorDado = dado.roll();
