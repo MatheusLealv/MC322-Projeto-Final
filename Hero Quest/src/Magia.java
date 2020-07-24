@@ -1,6 +1,13 @@
 
 public class Magia {
+	private Unit magico;
+	public Magia(Unit magico) {
+		this.magico=magico;
+	}
 	
+	public Unit getMagico() {
+		return magico;
+	}
 	// MAGICO TENTA ATACAR O ALVO
 	// RETORNA TRUE se magico consegue atacar o alvo
 	public boolean usarMagia(Unit magico) {
