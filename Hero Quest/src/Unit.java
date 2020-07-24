@@ -37,7 +37,6 @@ public class Unit {
 			System.out.println("Você não possui essa arma");
 		}
 	}
-
 	//ATUALIZAR PONTOS DE INTELIGENCIA
 	public void atualizarPI(int pontosInteligencia) {
 		this.pontosInteligencia = pontosInteligencia;
