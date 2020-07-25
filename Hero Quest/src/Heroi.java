@@ -111,4 +111,8 @@ public class Heroi extends Unit {
 		}
 		mapa.trocaCel(this.x, this.y, this.x, this.y + 1);
 	}
+	
+	public void death(Mapa mapa) {
+		System.out.println("Você morreu e foi consumido pelas trevas");
+	}
 }

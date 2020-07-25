@@ -125,6 +125,10 @@ public class Unit extends Celula{
 		if(dano < 0) dano = 0;
 		enemy.diminuirVida(dano);
 		
+		if(enemy.getPontosVida()<=0) {
+			enemy.death();
+		}
+		
 		for(Arma arma: armas) {
 			if(arma.ehDestruida()) {
 				this.removeArma(arma);
@@ -191,4 +195,6 @@ public class Unit extends Celula{
 		}
 		return this.getMagias().get(0);
 	}
+	
+	public void death() {}
 }

@@ -25,4 +25,9 @@ public class Monstro extends Unit{
 			}
 		}
 	}
+	
+	public void death(Mapa mapa) {
+		CelulaVazia vazia = new CelulaVazia(x,y);
+		mapa.setCelula(x, y, vazia);
+	}
 }
