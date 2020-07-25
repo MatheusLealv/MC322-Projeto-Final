@@ -14,7 +14,7 @@ public class Monstro extends Unit{
 			if(x >= 0 && x < mapa.getN() && y >= 0 && y < mapa.getM() && (mapa.getCelula(x, y) instanceof Heroi)){
 				Heroi heroi = (Heroi)mapa.getCelula(x, y);
 				
-				if(this instanceof EsqueletoMago && this.getMagias().size()>0) {
+				if(this instanceof EsqueletoMago) {
 					this.usarMagicMissile(heroi);
 				}
 				else {

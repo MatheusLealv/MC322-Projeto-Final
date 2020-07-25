@@ -115,21 +115,27 @@ public class Mapa {
 	}
 	
 	public void monstroTurno() { 
-		Heroi ptr = getHeroi();
-		for(int i = 0 ; i < N ; i ++) {
-			for(int j = 0 ; j < M ; j ++) {
-				if((grid[i][j] instanceof Monstro)) {
-					if((grid[i][j] instanceof Goblin)) {
-						moveToHero(((Monstro) grid[i][j]), ptr);
-					}
-					else {
-						moveRandom((Monstro) grid[i][j]);
-					}
-				}
-				((Monstro) grid[i][j]).attackHero(this);
-			}
-		}
-	}
+        Heroi ptr = getHeroi();
+        for(int i = 0 ; i < N ; i ++) {
+            for(int j = 0 ; j < M ; j ++) {
+                if((grid[i][j] instanceof Monstro)) {
+                    if((grid[i][j] instanceof Goblin)) {
+                        moveToHero(((Monstro) grid[i][j]), ptr);
+                    }
+                    else {
+                        moveRandom((Monstro) grid[i][j]);
+                    }
+                }
+            }
+        }
+        for(int i = 0 ; i < N ; i ++) {
+            for(int j = 0 ; j < M ; j ++) {
+                if((grid[i][j] instanceof Monstro)) {
+                    ((Monstro)grid[i][j]).attackHero(this);
+                }
+            }
+        }
+    }
 	//o monstro na Celula "from" irá se mover em direção ao herói na posição "to"
 	public void moveToHero(Monstro from, Heroi to) {
 		int x_from = from.getX();
