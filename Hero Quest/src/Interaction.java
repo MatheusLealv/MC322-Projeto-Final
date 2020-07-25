@@ -33,7 +33,26 @@ public class Interaction {
 		DadosRed dado = new DadosRed();
 		int roll = dado.roll();
 		roll += dado.roll();
-		heroi.move(mapa, roll);
-		
+		mapa.moveHeroi(heroi, roll);
+		while(true) {
+			System.out.println("Escolha Sua Ação:");
+			System.out.println("1-Arma 2-Magia 3-Procurar Tesouro");
+			Scanner read = new Scanner(System.in);
+			int c = read.nextInt();
+			Celula[][] grid = mapa.getMapa();
+			while(true) {
+				if (c.equals("1")) {
+					
+				} else
+				if (c.equals("2")) {
+					heroi.moveRight(this);
+				} else
+				if (c.equals("3")) {
+					heroi.procurarTesouro(mapa);
+				} else {
+					System.out.println("Por favor digite uma ação válida");
+				}
+			}
+		}
 	}
 }

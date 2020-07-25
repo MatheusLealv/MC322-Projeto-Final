@@ -24,6 +24,32 @@ public class Heroi extends Unit {
 	public void tomarArmadilha(Armadilha armadilha) {
 		danoDireto(armadilha.getDano());
 	}
+
+	public void procurarTesouro(Mapa mapa) {
+		System.out.println("Você pode procurar um tesouro nas salas adjacentes com WASD");
+		Celula[][] grid = mapa.getMapa();
+		mapa.printMap();
+		Scanner read = new Scanner(System.in);
+		String c = read.nextLine();
+		while(true) {
+			if (c.equals("W")) {
+				this.procurarTesouro(grid[x-1][y]);
+			} else
+			if (c.equals("D")) {
+				this.procurarTesouro(grid[x][y+1]);
+			} else
+			if (c.equals("A")) {
+				this.procurarTesouro(grid[x+1][y]);
+			} else 
+			if (c.equals("S")) {
+				this.procurarTesouro(grid[x][y-1]);
+			} else {
+				System.out.println("Por favor faça uma ação válida");
+				
+			}
+			mapa.printMap();
+		}
+	}
 	
 	public void procurarTesouro(Celula C) {
 		//PODE ENCONTRAR UM MONSTRO
