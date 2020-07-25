@@ -34,7 +34,7 @@ public class Interaction {
 		int roll = dado.roll();
 		roll += dado.roll();
 		mapa.moveHeroi(heroi, roll);
-		//while(true) {
+
 			Scanner read = new Scanner(System.in);
 			while(true) {
 				System.out.println("Escolha Sua Ação:");
@@ -62,7 +62,6 @@ public class Interaction {
 					System.out.println("Por favor digite uma ação válida");
 				}
 			}
-	//	}
 		
 		//heroi.move(mapa, roll);
 	}
