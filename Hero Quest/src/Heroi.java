@@ -27,12 +27,12 @@ public class Heroi extends Unit {
 
 	public void procurarTesouro(Mapa mapa) {
 		mapa.printMap();
-		System.out.println("Você pode procurar um tesouro nas salas adjacentes com WASD");
+		System.out.println("Você pode procurar um tesouro nas salas adjacentes com wasd");
 		Celula[][] grid = mapa.getMapa();
 		Scanner read = new Scanner(System.in);
 		String c;
 		while(true) {
-			System.out.println("Você pode procurar um tesouro nas salas adjacentes com WASD");
+			System.out.println("Você pode procurar um tesouro nas salas adjacentes com wasd");
 			c = read.nextLine();
 			if (c.equals("w")) {
 				this.procurarTesouro(grid[x-1][y]);
