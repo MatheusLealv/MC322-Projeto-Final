@@ -142,6 +142,10 @@ public class Heroi extends Unit {
 		return true;
 	}
 	
+	public void tomarPocao(Pocao pocao) {
+		this.aumentarVida(pocao.getVidaExtra());
+	}
+	
 	@Override
 	public void death(Mapa mapa) {
 		System.out.println("Você morreu e foi consumido pelas trevas");
