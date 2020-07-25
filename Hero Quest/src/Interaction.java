@@ -72,4 +72,79 @@ public class Interaction {
 			System.out.println("Não há monstros para serem atacados");
 		}
 	}
+	
+	public void realizarMagia(Mapa mapa, Heroi heroi) {
+		int[] dx = {1, -1, 0, 0};
+		int[] dy = {0, 0, 1, -1};
+		ArrayList<Monstro> monstros = new ArrayList<Monstro>();
+		ArrayList<Magia> magias = heroi.getMagias();
+		for(int i = 0; i < 4; i++) {
+			int x = heroi.getX() + dx[i], y = heroi.getY() + dy[i];
+			while(0 <= x && x < mapa.getN() && 0 <= y && y < mapa.getM()) {
+				Celula C = mapa.getCelula(x, y);
+				if(C instanceof Bloqueado) {
+					break ;
+				}
+				if(C instanceof Monstro) {
+					monstros.add((Monstro) C);
+					break ;
+				}
+				x += dx[i] ;
+				y += dy[i];
+			}
+		}		
+		int i = 0;
+		if(magias.size() >= 1) {
+			Scanner read = new Scanner(System.in);
+			System.out.println("Digite a magia que deseja usar");			
+			for(Magia magia: magias) {
+				System.out.println(i + " - " + magia );
+				i ++ ;
+			}
+			int operacao = read.nextInt();
+			while(operacao < 0 || operacao >= monstros.size()) {
+				System.out.println("Opção inválida! Digite novamente");
+				operacao = read.nextInt();
+			}
+			Magia magia = magias.get(operacao);
+			i = 0 ;
+			if(magia instanceof MagiaAtaque) {
+				if(monstros.size() >= 1) {
+					System.out.println("Digite o número correspondente ao monstro que deseja atacar");
+					for(Monstro monstro: monstros) {
+						System.out.println(i + " - " + monstro + " at position " + monstro.getX() + ", " + monstro.getY());
+						i ++;
+					}
+					operacao = read.nextInt();
+					while(operacao < 0 || operacao >= monstros.size()) {
+						System.out.println("Opção inválida! Digite novamente");
+						operacao = read.nextInt();				
+					}	
+					Monstro monstro = monstros.get(operacao);
+					heroi.removeMagia(magia);
+					((MagiaAtaque) magia).setAlvo(monstro);
+					if(magia instanceof MagiaEmArea) {
+						((MagiaEmArea) magia).usarMagia(mapa);
+					}
+					else{
+						((MagiaSingle) magia).usarMagia();
+					}
+				}
+				else {
+					System.out.println("Não há monstros para serem atacados");					
+				}
+			}
+			else if(magia instanceof MagiaHeal) {
+				heroi.removeMagia(magia);
+				((SimpleHeal) magia).usarMagia();
+			}
+			else {
+				heroi.removeMagia(magia);
+				
+			}
+		}
+		else {
+			System.out.println("Não há magias disponíveis");
+		}	
+	}
 }

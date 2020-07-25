@@ -1,5 +1,5 @@
 
-public class Armadura implements Item{
+public class Armadura implements Dropavel{
 	private int defesa;
 	
 	public Armadura(int defesa) {

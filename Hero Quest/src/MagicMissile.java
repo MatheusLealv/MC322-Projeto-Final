@@ -1,5 +1,5 @@
 
-public class MagicMissile extends Magia{
+public class MagicMissile extends Magia implements MagiaAtaque , MagiaSingle{
 	private Unit alvo;
 	
 	public MagicMissile(Unit magico) {

@@ -1,5 +1,5 @@
 
-public class Fireball extends Magia{
+public class Fireball extends Magia implements MagiaAtaque, MagiaEmArea{
 	Unit alvo;
 	public Fireball(Unit magico) {
 		super(magico);

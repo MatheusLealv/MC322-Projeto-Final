@@ -1,5 +1,5 @@
 
-public class SimpleHeal extends Magia{
+public class SimpleHeal extends Magia implements MagiaHeal{
 	public SimpleHeal(Unit magico) {
 		super(magico);
 	}

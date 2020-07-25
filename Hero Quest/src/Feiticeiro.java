@@ -18,5 +18,5 @@ public class Feiticeiro extends Heroi implements Magico{
 		
 		setModelo("FE");
 	}
-
+	
 }

@@ -1,5 +1,5 @@
 
-public class Magia implements Item{
+public class Magia implements Dropavel{
 	protected Unit magico;
 	public Magia(Unit magico) {
 		this.magico=magico;
@@ -39,4 +39,7 @@ public class Magia implements Item{
 		}
 		return qtdEscudo;
 	}
+	
+	// 
+	
 }

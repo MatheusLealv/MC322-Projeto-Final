@@ -1,5 +1,5 @@
 
-public class Arma implements Item{
+public class Arma implements Dropavel{
 	private int bonusDados;
 	private int alcance;
 	private boolean ehDestruida;

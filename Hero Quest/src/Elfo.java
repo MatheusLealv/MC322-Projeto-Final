@@ -9,5 +9,5 @@ public class Elfo extends Heroi implements Magico{
 		
 		setModelo("EL");
 	}
-
+	
 }
