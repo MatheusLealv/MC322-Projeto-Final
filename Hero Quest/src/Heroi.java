@@ -49,7 +49,7 @@ public class Heroi extends Unit {
 			if (c.equals("s")) {
 				this.procurarTesouro(grid[x][y-1]);
 				break;
-			} else {
+			} else if(!c.equals("0")) {
 				System.out.println("Por favor faça uma ação válida");
 				
 			}
