@@ -10,9 +10,12 @@ public class Game {
 		Heroi heroi = Interaction.criarPersonagem();
 		mapa.generateMap(heroi);		
 		
-		while(true) {
+		while(heroi.isAlive()) {
 			mapa.printMap();
 			Interaction.turnoHeroi(heroi, mapa);
+			if(heroi.isAlive() == false) {
+				break;
+			}
 			Interaction.turnoMonstros(mapa);
 		}
 	}

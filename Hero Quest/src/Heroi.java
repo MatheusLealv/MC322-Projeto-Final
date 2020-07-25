@@ -82,6 +82,9 @@ public class Heroi extends Unit {
 			to = new CelulaVazia(to.getX(), to.getY());
 			mapa.setCelula(to.getX(), to.getY(), to);
 		}
+		else if(to instanceof Porta) {
+			((Porta)to).abrir(mapa);
+		}
 		mapa.trocaCel(this.x, this.y, this.x - 1, this.y);
 	}
 	
@@ -94,6 +97,9 @@ public class Heroi extends Unit {
 			tomarArmadilha((Armadilha)to);
 			to = new CelulaVazia(to.getX(), to.getY());
 			mapa.setCelula(to.getX(), to.getY(), to);
+		}
+		else if(to instanceof Porta) {
+			((Porta)to).abrir(mapa);
 		}
 		mapa.trocaCel(this.x, this.y, this.x + 1, this.y);
 	}
@@ -108,6 +114,9 @@ public class Heroi extends Unit {
 			to = new CelulaVazia(to.getX(), to.getY());
 			mapa.setCelula(to.getX(), to.getY(), to);
 		}
+		else if(to instanceof Porta) {
+			((Porta)to).abrir(mapa);
+		}
 		mapa.trocaCel(this.x, this.y, this.x, this.y - 1);
 	}
 	
@@ -121,10 +130,23 @@ public class Heroi extends Unit {
 			to = new CelulaVazia(to.getX(), to.getY());
 			mapa.setCelula(to.getX(), to.getY(), to);
 		}
+		else if(to instanceof Porta) {
+			((Porta)to).abrir(mapa);
+		}
 		mapa.trocaCel(this.x, this.y, this.x, this.y + 1);
 	}
+	
+	public boolean isAlive() {
+		if(this.getPontosVida() <= 0) {
+			return false;
+		}
+		return true;
+	}
+	
 	@Override
 	public void death(Mapa mapa) {
 		System.out.println("Você morreu e foi consumido pelas trevas");
 	}
+	
+	
 }
