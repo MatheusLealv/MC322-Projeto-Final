@@ -20,5 +20,20 @@ public class Heroi extends Unit {
 	public void atualizarArmadura(Armadura armadura) {
 		this.armadura = armadura;
 	}
+	
+	public void procurarTesouro(Celula C) {
+		//PODE ENCONTRAR UM MONSTRO
+		//O QUE FAZER QUANDO ENCONTRAR UM MONSTRO ?
+		if(C instanceof Monstro) {
+			
+		}
+		
+		if(C instanceof Tesouro) {
+			Tesouro tesouro = (Tesouro)(C);
+			tesouro.getTesouro(this);
+			
+			C = new CelulaVazia(C.getX(), C.getY());
+		}
+	}
 
 }

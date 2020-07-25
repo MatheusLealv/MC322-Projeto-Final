@@ -6,6 +6,8 @@ public class Armadilha extends Celula{
 		super(x,y);
 		Random rng = new Random();
 		dano = rng.nextInt(2)+1;
+		
+		this.setModelo("XX");
 	}
 	public int getDano() {
 		return dano;

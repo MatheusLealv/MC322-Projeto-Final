@@ -16,7 +16,9 @@ public class Esqueleto extends Monstro{
 		else if(u == 3) {
 			addArma(new Punhal());
 			addArma(new Punhal());
-		}	
+		}
+		
+		setModelo("ES");
 	}
 	
 	public void makeTurn(Mapa mapa) {

@@ -4,6 +4,8 @@ import java.util.Random;
 public class Tesouro extends Celula{
 	public Tesouro(int x , int y) {
 		super(x,y);
+		
+		this.setModelo("$$");
 	}
 	public ArrayList<Item> getTesouro(Unit PC){
 		ArrayList<Item> inside = new ArrayList<Item>();

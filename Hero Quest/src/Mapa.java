@@ -139,6 +139,15 @@ public class Mapa {
 			trocaCel(monstro.getX(), monstro.getY(), x, y);
 		}
 	}
+	
+	public void printMap() {
+		for(int i = 0; i < N; i ++) {
+			for(int j = 0; j < 4*M + 3; j++) {
+				System.out.print(this.grid[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
 }
 
 
