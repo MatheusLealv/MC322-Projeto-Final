@@ -10,12 +10,12 @@ public class Magia implements Item{
 	}
 	// MAGICO TENTA ATACAR O ALVO
 	// RETORNA TRUE se magico consegue atacar o alvo
-	public boolean testarMagia(Unit magico) {
-		if(magico instanceof Magico) {
+	public boolean testarMagia() {
+		if(this.magico instanceof Magico) {
 			DadosRed dado = new DadosRed();
 			int valorDado = dado.roll();
 			
-			if(valorDado <= magico.getPontosVida()) {
+			if(valorDado <= this.magico.getPontosVida()) {
 				return true;
 			}
 		}
@@ -24,9 +24,6 @@ public class Magia implements Item{
 		}
 		
 		return false;
-	}
-	public void testarMagia() {
-		
 	}
 	
 	//O ALVO VAI TENTAR SE DEFENDER

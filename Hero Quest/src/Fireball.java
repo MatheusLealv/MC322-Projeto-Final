@@ -27,5 +27,7 @@ public class Fireball extends Magia{
 				}
 			}
 		}
+		
+		this.magico.removeMagia(this);
 	}
 }
