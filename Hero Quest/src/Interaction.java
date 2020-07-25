@@ -33,7 +33,8 @@ public class Interaction {
 		DadosRed dado = new DadosRed();
 		int roll = dado.roll();
 		roll += dado.roll();
-		heroi.move(mapa, roll);
+		
+		//heroi.move(mapa, roll);
 		
 	}
 }
