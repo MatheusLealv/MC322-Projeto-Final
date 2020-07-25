@@ -156,6 +156,14 @@ public class Unit extends Celula{
 		this.numDadosDefesa = numDadosDefesa;
 	}	
 	
+	public boolean temEspadaLonga() {
+		for(Arma arma: armas) {
+			if(arma instanceof EspadaLonga) {
+				return true;
+			}
+		}
+		return false;
+	}
 	public void aumentarVida(int x) {
 		this.pontosVida += x;
 	}
