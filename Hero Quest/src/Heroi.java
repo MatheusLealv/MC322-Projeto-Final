@@ -34,19 +34,19 @@ public class Heroi extends Unit {
 			System.out.println("Você pode procurar um tesouro nas salas adjacentes com wasd");
 			c = read.nextLine();
 			if (c.equals("w") && x >= 0) {
-				this.procurarTesouro(grid[x-1][y]);
+				this.procurarTesouro(mapa, grid[x-1][y]);
 				break;
 			} else
 			if (c.equals("d") && (y+1) < mapa.getM()) {
-				this.procurarTesouro(grid[x][y+1]);
+				this.procurarTesouro(mapa, grid[x][y+1]);
 				break;
 			} else
-			if (c.equals("a") && (x+1) < mapa.getN()) {
-				this.procurarTesouro(grid[x+1][y]);
+			if (c.equals("s") && (x+1) < mapa.getN()) {
+				this.procurarTesouro(mapa, grid[x+1][y]);
 				break;
 			} else 
-			if (c.equals("s") && (y-1) >= 0) {
-				this.procurarTesouro(grid[x][y-1]);
+			if (c.equals("a") && (y-1) >= 0) {
+				this.procurarTesouro(mapa, grid[x][y-1]);
 				break;
 			} else if(!c.equals("0")) {
 				System.out.println("Por favor faça uma ação válida");
@@ -56,7 +56,7 @@ public class Heroi extends Unit {
 		}
 	}
 	
-	public void procurarTesouro(Celula C) {
+	public void procurarTesouro(Mapa mapa, Celula C) {
 		//PODE ENCONTRAR UM MONSTRO
 		//O QUE FAZER QUANDO ENCONTRAR UM MONSTRO ?
 		
@@ -68,7 +68,7 @@ public class Heroi extends Unit {
 				C = (Celula) bau.get(0);
 			}
 			else {
-				C = new CelulaVazia(C.getX(), C.getY());
+				mapa.setCelula(C.getX(), C.getY(), new CelulaVazia(C.getX(), C.getY()));
 			}
 		}
 		else {
