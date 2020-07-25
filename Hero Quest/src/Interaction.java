@@ -62,7 +62,7 @@ public class Interaction {
 		//heroi.move(mapa, roll);
 	}
 	
-	public void utilizarPunhal(Mapa mapa, Heroi heroi, int qtdPunhal) {
+	public static void utilizarPunhal(Mapa mapa, Heroi heroi, int qtdPunhal) {
 		Scanner read = new Scanner(System.in);
 		int[] dx = {1, -1, 0, 0, 2, -2, 0, 0, 3, -3, 0, 0};
 		int[] dy = {0, 0, 1, -1, 0, 0, 2, -2, 0, 0, 3, -3};	
@@ -128,12 +128,7 @@ public class Interaction {
 			punhaisUsaveis = read.nextInt();
 		}
 		
-		for(Arma arma: heroi.getArmas()) {
-			if( (arma instanceof Punhal) && punhaisUsaveis > 0) {
-				punhaisUsaveis --;
-				minhasArmas.add(arma);
-			}
-		}
+		utilizarPunhal(mapa, heroi, punhaisUsaveis);
 			
 		ArrayList<Monstro> monstros = new ArrayList<Monstro>();
 		for(int i = 0; i < 4; i++) {
