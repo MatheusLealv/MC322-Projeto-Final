@@ -35,6 +35,41 @@ public class Interaction {
 		roll += dado.roll();
 		
 		//heroi.move(mapa, roll);
+	}
+	
+	public void realizarAtaque(Mapa mapa, Heroi heroi) {
+		int[] dx = {1, -1, 0, 0};
+		int[] dy = {0, 0, 1, -1};
 		
+		ArrayList<Monstro> monstros = new ArrayList<Monstro>();
+		for(int i = 0; i < 4; i++) {
+			int x = heroi.getX() + dx[i], y = heroi.getY() + dy[i];
+			if(0 <= x && x < mapa.getN() && 0 <= y && y < mapa.getM()) {
+				Celula C = mapa.getCelula(x, y);
+				if(C instanceof Monstro) {
+					monstros.add((Monstro)C);
+				}
+			}
+		}
+		int i = 0;
+		if(monstros.size() >= 1) {
+			Scanner read = new Scanner(System.in);
+			System.out.println("Digite o número correspondente ao monstro que deseja atacar");
+			for(Monstro monstro: monstros) {
+				System.out.println(i + " - " + monstro + " at position " + monstro.getX() + ", " + monstro.getY());
+				i ++;
+			}
+			int operacao = read.nextInt();
+			while(operacao < 0 || operacao >= monstros.size()) {
+				System.out.println("Opção inválida! Digite novamente");
+				operacao = read.nextInt();				
+			}
+			
+			Monstro monstro = monstros.get(operacao);
+			heroi.combate(monstro);
+		}
+		else {
+			System.out.println("Não há monstros para serem atacados");
+		}
 	}
 }

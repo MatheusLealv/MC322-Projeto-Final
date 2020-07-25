@@ -85,6 +85,4 @@ public class Heroi extends Unit {
 		}
 		mapa.trocaCel(this.x, this.y, this.x, this.y + 1);
 	}
-	
-	
 }
