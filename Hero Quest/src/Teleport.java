@@ -16,4 +16,9 @@ public class Teleport extends Magia implements MagiaTeleporte {
 			System.out.println("Não é possível se teleportar para essa célula");
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return "Teleporte";
+	}
 }
