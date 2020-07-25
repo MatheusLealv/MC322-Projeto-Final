@@ -80,9 +80,11 @@ public class Interaction {
 		
 		ArrayList<Arma> minhasArmas = new ArrayList<Arma>();
 		
+		int qPunhal = qtdPunhal;
+		
 		for(Arma arma: heroi.getArmas()) {
-			if((arma instanceof Punhal) && (qtdPunhal > 0)) {
-				qtdPunhal --;
+			if((arma instanceof Punhal) && (qPunhal > 0)) {
+				qPunhal --;
 				minhasArmas.add(arma);
 			}
 		}
@@ -105,14 +107,19 @@ public class Interaction {
 				i ++;
 			}
 			
-			int operacao = read.nextInt();
-			while(operacao < 0 || operacao >= monstros.size()) {
-				System.out.println("Opção inválida! Digite novamente");
-				operacao = read.nextInt();				
+			if(i == 0) {
+				System.out.println("Não há monstros para serem atacados");
 			}
-			
-			Monstro monstro = monstros.get(operacao);
-			heroi.combate(mapa,monstro, minhasArmas);
+			else {
+				int operacao = read.nextInt();
+				while(operacao < 0 || operacao >= monstros.size()) {
+					System.out.println("Opção inválida! Digite novamente");
+					operacao = read.nextInt();				
+				}
+				
+				Monstro monstro = monstros.get(operacao);
+				heroi.combate(mapa,monstro, minhasArmas);
+			}
 			
 		}
 		
@@ -133,7 +140,7 @@ public class Interaction {
 			}
 		}
 		
-		System.out.println("Você possui " + qtdPunhal + "punhais. Digite quantos você quer utilizar");
+		System.out.println("Você possui " + qtdPunhal + " punhais. Digite quantos você quer utilizar");
 		int punhaisUsaveis = read.nextInt();
 		while(punhaisUsaveis < 0 || punhaisUsaveis > qtdPunhal) {
 			punhaisUsaveis = read.nextInt();
