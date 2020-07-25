@@ -41,11 +41,11 @@ public class Heroi extends Unit {
 				this.procurarTesouro(grid[x][y+1]);
 				break;
 			} else
-			if (c.equals("a") && (x+1) < mapa.getN()) {
+			if (c.equals("s") && (x+1) < mapa.getN()) {
 				this.procurarTesouro(grid[x+1][y]);
 				break;
 			} else 
-			if (c.equals("s") && (y-1) >= 0) {
+			if (c.equals("a") && (y-1) >= 0) {
 				this.procurarTesouro(grid[x][y-1]);
 				break;
 			} else if(!c.equals("0")) {
