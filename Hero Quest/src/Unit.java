@@ -62,10 +62,10 @@ public class Unit extends Celula{
 		}
 	}
 	
-	public void usarTeleporte(Celula C) {
+	public void usarTeleporte(Mapa mapa, Celula C) {
 		for(Magia cur: magias) {
 			if(cur instanceof Teleport) {
-				((Teleport) cur).usarMagia(C);
+				((Teleport) cur).usarMagia(mapa, C);
 				magias.remove(cur);
 				return;
 			}

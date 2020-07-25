@@ -5,10 +5,10 @@ public class Teleport extends Magia {
 		super(magico);
 	}
 	
-	public void usarMagia(Celula C) {
+	public void usarMagia(Mapa mapa, Celula C) {
 		if((C instanceof CelulaVazia) && this.magico.isVisible(C)) {
 			if(this.testarMagia()) {
-			//	mapa.swap(this.magico.getX(), this.magico.getY(), C.getX(), C.getY());
+				mapa.trocaCel(this.magico.getX(), this.magico.getY(), C.getX(), C.getY());
 			}
 			this.magico.removeMagia(this);
 		}
