@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class Mapa {
 	
@@ -130,6 +131,34 @@ public class Mapa {
 			}
 		}
 	}
+	
+	public void moveHeroi(Heroi heroi,int roll) {
+		System.out.println(heroi.getNome()+", você tirou "+roll+"nos dados para se movimentar");
+		System.out.println("Para encerrar sua movimentação, aperte 0");
+		printMap();
+		Scanner read = new Scanner(System.in);
+		String c = read.nextLine();
+		while(!c.equals("0")||roll==0) {
+			if (c.equals("W")) {
+				heroi.moveUp(this);
+			} else
+			if (c.equals("D")) {
+				heroi.moveRight(this);
+			} else
+			if (c.equals("A")) {
+				heroi.moveDown(this);
+			} else 
+			if (c.equals("S")) {
+				heroi.moveLeft(this);
+			} else {
+				System.out.println("Esse movimento não é válido para seu Herói");
+				roll++;
+			}
+			printMap();
+			roll--;
+		}
+	}
+	
 	//o monstro na Celula "from" irá se mover em direção ao herói na posição "to"
 	public void moveToHero(Monstro from, Heroi to) {
 		int x_from = from.getX();

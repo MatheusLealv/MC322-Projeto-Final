@@ -28,5 +28,12 @@ public class Interaction {
 			}
 		}
 	}
-
+	
+	public static void turnoHeroi(Heroi heroi,Mapa mapa) {
+		DadosRed dado = new DadosRed();
+		int roll = dado.roll();
+		roll += dado.roll();
+		heroi.move(mapa, roll);
+		
+	}
 }
