@@ -35,24 +35,27 @@ public class Interaction {
 		roll += dado.roll();
 		mapa.moveHeroi(heroi, roll);
 		while(true) {
-			System.out.println("Escolha Sua Ação:");
-			System.out.println("1-Arma 2-Magia 3-Procurar Tesouro");
 			Scanner read = new Scanner(System.in);
-			int c = read.nextInt();
-			Celula[][] grid = mapa.getMapa();
 			while(true) {
+				System.out.println("Escolha Sua Ação:");
+				System.out.println("1-Arma 2-Magia 3-Procurar Tesouro");
+				int c = read.nextInt();
+				Celula[][] grid = mapa.getMapa();
 				if (c==1) {
 					realizarAtaque(mapa,heroi);
+					break;
 				} else
 				if (c==2) {
 					if(heroi.getMagias().isEmpty()) {
 						System.out.println("Você não possui magias");
 					} else {
 						realizarMagia(mapa,heroi);
+						break;
 					}
 				} else
 				if (c==3) {
 					heroi.procurarTesouro(mapa);
+					break;
 				} else {
 					System.out.println("Por favor digite uma ação válida");
 				}
@@ -101,7 +104,7 @@ public class Interaction {
 			}
 			
 			Monstro monstro = monstros.get(operacao);
-			heroi.combate(monstro, minhasArmas);
+			heroi.combate(mapa,monstro, minhasArmas);
 			
 		}
 		
@@ -155,7 +158,7 @@ public class Interaction {
 			}
 			
 			Monstro monstro = monstros.get(operacao);
-			heroi.combate(monstro, minhasArmas);
+			heroi.combate(mapa,monstro, minhasArmas);
 		}
 		else {
 			System.out.println("Não há monstros para serem atacados");
@@ -218,6 +221,7 @@ public class Interaction {
 					else{
 						((MagiaSingle) magia).usarMagia();
 					}
+					if(monstro.getPontosVida()<=0) monstro.death(mapa);
 				}
 				else {
 					System.out.println("Não há monstros para serem atacados");					

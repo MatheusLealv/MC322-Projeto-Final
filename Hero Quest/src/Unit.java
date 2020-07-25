@@ -99,7 +99,7 @@ public class Unit extends Celula{
 		}
 	}
 	
-	public void combate(Unit enemy, ArrayList<Arma> armas) {
+	public void combate(Mapa mapa,Unit enemy, ArrayList<Arma> armas) {
 		DadosCombat dado = new DadosCombat();
 		ArrayList<Arma> armasUsadas = new ArrayList<Arma>();
 		int dadosAtaque = this.numDadosAtaque;
@@ -131,9 +131,8 @@ public class Unit extends Celula{
 		enemy.diminuirVida(dano);
 		
 		if(enemy.getPontosVida()<=0) {
-			enemy.death();
+			enemy.death(mapa);
 		}
-		
 
 		for(Arma arma: armasUsadas) {
 
@@ -203,5 +202,5 @@ public class Unit extends Celula{
 		return this.getMagias().get(0);
 	}
 	
-	public void death() {}
+	public void death(Mapa mapa) {}
 }

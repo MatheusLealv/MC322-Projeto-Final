@@ -19,13 +19,13 @@ public class Monstro extends Unit{
 				}
 				else {
 					Arma arma = this.getArma();
-					this.combate(heroi, this.getArmas());
+					this.combate(mapa,heroi, this.getArmas());
 				}
 
 			}
 		}
 	}
-	
+	@Override
 	public void death(Mapa mapa) {
 		CelulaVazia vazia = new CelulaVazia(x,y);
 		mapa.setCelula(x, y, vazia);
