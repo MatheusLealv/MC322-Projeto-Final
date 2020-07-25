@@ -55,6 +55,7 @@ public class Heroi extends Unit {
 		if(to instanceof Armadilha) {
 			tomarArmadilha((Armadilha)to);
 			to = new CelulaVazia(to.getX(), to.getY());
+			mapa.setCelula(to.getX(), to.getY(), to);
 		}
 		mapa.trocaCel(this.x, this.y, this.x + 1, this.y);
 	}
@@ -67,6 +68,7 @@ public class Heroi extends Unit {
 		if(to instanceof Armadilha) {
 			tomarArmadilha((Armadilha)to);
 			to = new CelulaVazia(to.getX(), to.getY());
+			mapa.setCelula(to.getX(), to.getY(), to);
 		}
 		mapa.trocaCel(this.x, this.y, this.x, this.y - 1);
 	}
@@ -79,6 +81,7 @@ public class Heroi extends Unit {
 		if(to instanceof Armadilha) {
 			tomarArmadilha((Armadilha)to);
 			to = new CelulaVazia(to.getX(), to.getY());
+			mapa.setCelula(to.getX(), to.getY(), to);
 		}
 		mapa.trocaCel(this.x, this.y, this.x, this.y + 1);
 	}

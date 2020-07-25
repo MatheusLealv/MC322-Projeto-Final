@@ -150,6 +150,11 @@ public class Mapa {
 			System.out.println();
 		}
 	}
+	
+	public void setCelula(int x, int y, Celula C) {
+		this.grid[x][y] = C;
+		C.atualizarPos(x, y);
+	}
 }
 
 

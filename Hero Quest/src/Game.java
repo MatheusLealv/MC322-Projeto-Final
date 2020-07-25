@@ -12,9 +12,21 @@ public class Game {
 		//System.out.println(heroi.getNome() + " " + esqueleto.getPontosVida());
 				
 		mapa.generateMap(heroi);
-		System.out.println("DONE\n");
-				
 		mapa.printMap();
+		System.out.println("DONE\n");
+		
+		
+		
+//		heroi.moveRight(mapa);
+//		mapa.printMap();
+//		
+//		System.out.print("\n");
+//		heroi.moveDown(mapa);
+//		mapa.printMap();
+//		
+//		System.out.println("");
+//		
+//		System.out.println("PONTOS DE VIDA: " + heroi.getPontosVida());
 	}
 
 }
