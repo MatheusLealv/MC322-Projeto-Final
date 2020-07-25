@@ -14,8 +14,7 @@ public class Goblin extends Monstro{
 	}
 	
 	public void makeTurn(Mapa mapa, Heroi hero) {
-		mapa.moveToHero(this, hero);
-	
+		Pair u = mapa.moveToHero(this, hero);
 		this.attackHero(mapa);
 	}
 }

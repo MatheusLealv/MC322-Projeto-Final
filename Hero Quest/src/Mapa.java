@@ -116,14 +116,20 @@ public class Mapa {
 	
 	public void monstroTurno() { 
         Heroi ptr = getHeroi();
+        boolean[][] vis = new boolean[N][M];
         for(int i = 0 ; i < N ; i ++) {
             for(int j = 0 ; j < M ; j ++) {
+            	if(vis[i][j] == true) 
+            		continue;
+            	
                 if((grid[i][j] instanceof Monstro)) {
                     if((grid[i][j] instanceof Goblin)) {
-                        moveToHero(((Monstro) grid[i][j]), ptr);
+                    	Pair u =moveToHero(((Monstro) grid[i][j]), ptr);
+                    	vis[u.getX()][u.getY()] = true;
                     }
                     else {
-                        moveRandom((Monstro) grid[i][j]);
+                        Pair u = moveRandom((Monstro) grid[i][j]);
+                        vis[u.getX()][u.getY()] = true;
                     }
                 }
             }
@@ -137,7 +143,7 @@ public class Mapa {
         }
     }
 	//o monstro na Celula "from" irá se mover em direção ao herói na posição "to"
-	public void moveToHero(Monstro from, Heroi to) {
+	public Pair moveToHero(Monstro from, Heroi to) {
 		int x_from = from.getX();
 		int y_from = from.getY();
 		
@@ -146,24 +152,25 @@ public class Mapa {
 		
 		if(x_from + 1 < this.N && (grid[x_from + 1][y_from] instanceof CelulaVazia) && (x_from < x_to)) {
 			trocaCel(x_from, y_from, x_from + 1, y_from);
-			return;
+			return new Pair(x_from+1 , y_from);
 		}
 		if(x_from - 1 >= 0 && (grid[x_from - 1][y_from] instanceof CelulaVazia) && (x_from > x_to)) {
 			trocaCel(x_from, y_from, x_from - 1, y_from);
-			return;
+			return new Pair(x_from -1 , y_from);
 		}
 		
 		if(y_from + 1 < this.M && (grid[x_from][y_from + 1] instanceof CelulaVazia) && (y_from < y_to)) {
 			trocaCel(x_from, y_from, x_from, y_from + 1);
-			return;
+			return new Pair(x_from , y_from + 1);
 		}
 		if(y_from - 1 >= 0 && (grid[x_from][y_from - 1] instanceof CelulaVazia) && (y_from > y_to)) {
 			trocaCel(x_from, y_from, x_from, y_from - 1);
-			return;
+			return new Pair(x_from, y_from - 1);
 		}
+		return new Pair(x_from , y_from);
 	}
 	
-	public void moveRandom(Monstro monstro) {
+	public Pair moveRandom(Monstro monstro) {
 		int[] dx = {1, -1, 0, 0};
 		int[] dy = {0, 0, 1, -1};
 		
@@ -174,7 +181,9 @@ public class Mapa {
 		
 		if(x >= 0 && y >= 0 && x < N && y < M && (grid[x][y] instanceof CelulaVazia)) {
 			trocaCel(monstro.getX(), monstro.getY(), x, y);
+			return new Pair(x , y);
 		}
+		return new Pair(monstro.getX() , monstro.getY());
 	}
 	
 	public void printMap() {
