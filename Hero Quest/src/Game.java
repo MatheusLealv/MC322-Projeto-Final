@@ -13,7 +13,7 @@ public class Game {
 				
 		mapa.generateMap(heroi);
 		System.out.println("DONE\n");
-				
+		mapa.monstroTurno();
 		mapa.printMap();
 	}
 
