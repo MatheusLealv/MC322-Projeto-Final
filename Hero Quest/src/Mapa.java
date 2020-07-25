@@ -74,7 +74,7 @@ public class Mapa {
 		grid[4][22] = new EsqueletoMago(4,22);
 	}
 
-	private void trocaCel(int a , int b , int c , int d) {
+	protected void trocaCel(int a , int b , int c , int d) {
 		Celula A = grid[a][b];
 		Celula B = grid[c][d];
 		grid[a][b] = B;

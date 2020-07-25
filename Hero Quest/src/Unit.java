@@ -62,8 +62,14 @@ public class Unit extends Celula{
 		}
 	}
 	
-	public void usarTeleporte() {
-		
+	public void usarTeleporte(Mapa mapa, Celula C) {
+		for(Magia cur: magias) {
+			if(cur instanceof Teleport) {
+				((Teleport) cur).usarMagia(mapa, C);
+				magias.remove(cur);
+				return;
+			}
+		}
 	}
 	public void usarFireball(Unit enemy) {
 		for(Magia cur : magias) {
@@ -116,6 +122,10 @@ public class Unit extends Celula{
 		int dano = qtdCaveira - qtdEscudo;
 		if(dano < 0) dano = 0;
 		enemy.diminuirVida(dano);
+		
+		if(arma.ehDestruida()) {
+			this.removeArma(arma);
+		}
 	}
 	//ATUALIZAR PONTOS DE INTELIGENCIA
 	public void atualizarPI(int pontosInteligencia) {
@@ -138,6 +148,10 @@ public class Unit extends Celula{
 	public void diminuirVida(int x) {
 		this.pontosVida -= x;
 		if(this.pontosVida < 0) this.pontosVida = 0;
+	}
+	
+	public void danoDireto(int dano) {
+		this.pontosVida -= dano;
 	}
 	
 	public int getNumDadosAtaque() {
