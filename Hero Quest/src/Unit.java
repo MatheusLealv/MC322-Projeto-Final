@@ -99,12 +99,17 @@ public class Unit extends Celula{
 		}
 	}
 	
-	public void combate(Unit enemy) {
+	public void combate(Unit enemy, ArrayList<Arma> armas) {
 		DadosCombat dado = new DadosCombat();
+		ArrayList<Arma> armasUsadas = new ArrayList<Arma>();
 		int dadosAtaque = this.numDadosAtaque;
 		int qtdCaveira = 0;
 		for(Arma arma: armas) {
-			dadosAtaque+=arma.getBonusDado();
+			if(Math.abs(this.getX() - enemy.getX()) + Math.abs(this.getY() - enemy.getY()) <= arma.getAlcance()) {
+				dadosAtaque+=arma.getBonusDado();
+				
+				armasUsadas.add(arma);
+			}
 		}
 		//ataque
 		for(int i = 0; i < dadosAtaque; i++) {
@@ -129,7 +134,9 @@ public class Unit extends Celula{
 			enemy.death();
 		}
 		
-		for(Arma arma: armas) {
+
+		for(Arma arma: armasUsadas) {
+
 			if(arma.ehDestruida()) {
 				this.removeArma(arma);
 			}

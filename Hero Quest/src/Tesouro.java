@@ -7,8 +7,8 @@ public class Tesouro extends Celula{
 		
 		this.setModelo("$$");
 	}
-	public ArrayList<Item> getTesouro(Unit PC){
-		ArrayList<Item> inside = new ArrayList<Item>();
+	public ArrayList<Dropavel> getTesouro(Unit PC){
+		ArrayList<Dropavel> inside = new ArrayList<Dropavel>();
 		Random rng = new Random();
 		int rnd = rng. nextInt(3)+1;
 		if(rnd == 1) { // dropa arma

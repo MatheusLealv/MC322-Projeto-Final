@@ -1,5 +1,5 @@
 
-public class Teleport extends Magia {
+public class Teleport extends Magia implements MagiaTeleporte {
 
 	public Teleport(Unit magico) {
 		super(magico);

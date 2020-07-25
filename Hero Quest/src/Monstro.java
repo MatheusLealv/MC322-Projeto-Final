@@ -19,7 +19,7 @@ public class Monstro extends Unit{
 				}
 				else {
 					Arma arma = this.getArma();
-					this.combate(heroi);
+					this.combate(heroi, this.getArmas());
 				}
 
 			}
