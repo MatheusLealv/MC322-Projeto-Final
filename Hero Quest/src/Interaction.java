@@ -240,4 +240,8 @@ public class Interaction {
 			System.out.println("Não há magias disponíveis");
 		}	
 	}
+	
+	public static void turnoMonstros(Mapa mapa) {
+		mapa.monstroTurno();
+	}
 }
