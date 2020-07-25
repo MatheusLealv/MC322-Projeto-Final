@@ -21,6 +21,10 @@ public class Heroi extends Unit {
 		this.armadura = armadura;
 	}
 	
+	public void tomarArmadilha(Armadilha armadilha) {
+		danoDireto(armadilha.getDano());
+	}
+	
 	public void procurarTesouro(Celula C) {
 		//PODE ENCONTRAR UM MONSTRO
 		//O QUE FAZER QUANDO ENCONTRAR UM MONSTRO ?
@@ -35,5 +39,49 @@ public class Heroi extends Unit {
 			C = new CelulaVazia(C.getX(), C.getY());
 		}
 	}
-
+	
+	public void moveUp(Mapa mapa) {
+		if(this.x == 0) {
+			return;
+		}
+		mapa.trocaCel(this.x, this.y, this.x - 1, this.y);
+	}
+	
+	public void moveDown(Mapa mapa) {
+		if(this.x == mapa.getN() - 1) {
+			return;
+		}
+		Celula to = mapa.getCelula(this.x + 1, this.y);
+		if(to instanceof Armadilha) {
+			tomarArmadilha((Armadilha)to);
+			to = new CelulaVazia(to.getX(), to.getY());
+		}
+		mapa.trocaCel(this.x, this.y, this.x + 1, this.y);
+	}
+	
+	public void moveLeft(Mapa mapa) {
+		if(this.y == 0) {
+			return;
+		}
+		Celula to = mapa.getCelula(this.x, this.y - 1);
+		if(to instanceof Armadilha) {
+			tomarArmadilha((Armadilha)to);
+			to = new CelulaVazia(to.getX(), to.getY());
+		}
+		mapa.trocaCel(this.x, this.y, this.x, this.y - 1);
+	}
+	
+	public void moveRight(Mapa mapa) {
+		if(this.y == mapa.getM() - 1) {
+			return;
+		}
+		Celula to = mapa.getCelula(this.x, this.y + 1);
+		if(to instanceof Armadilha) {
+			tomarArmadilha((Armadilha)to);
+			to = new CelulaVazia(to.getX(), to.getY());
+		}
+		mapa.trocaCel(this.x, this.y, this.x, this.y + 1);
+	}
+	
+	
 }

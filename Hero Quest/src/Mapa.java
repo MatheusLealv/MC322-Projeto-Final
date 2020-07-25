@@ -73,6 +73,8 @@ public class Mapa {
 		grid[2][22] = new Armadilha(2,22);
 		grid[3][22] = new Armadilha(3,22);
 		grid[4][22] = new EsqueletoMago(4,22);
+		
+		this.M = 4*this.M + 3;
 	}
 
 	protected void trocaCel(int a , int b , int c , int d) {
@@ -141,8 +143,8 @@ public class Mapa {
 	}
 	
 	public void printMap() {
-		for(int i = 0; i < N; i ++) {
-			for(int j = 0; j < 4*M + 3; j++) {
+		for(int i = 0; i < this.N; i ++) {
+			for(int j = 0; j < this.M; j++) {
 				System.out.print(this.grid[i][j] + " ");
 			}
 			System.out.println();
