@@ -116,23 +116,24 @@ public class Mapa {
 	}
 	
 	public void moveHeroi(Heroi heroi,int roll) {
-		System.out.println(heroi.getNome()+", você tirou "+roll+"nos dados para se movimentar");
+		System.out.println(heroi.getNome()+", você tirou "+roll+" nos dados para se movimentar");
 		System.out.println("Para encerrar sua movimentação, aperte 0");
-		printMap();
+		//printMap();
 		Scanner read = new Scanner(System.in);
-		String c = read.nextLine();
-		while(!c.equals("0")||roll==0) {
-			if (c.equals("W")) {
+		String c = "1";
+		while(!c.equals("0") && roll>0) {
+			c = read.nextLine();
+			if (c.equals("W") || c.equals("w")) {
 				heroi.moveUp(this);
 			} else
-			if (c.equals("D")) {
+			if (c.equals("D")|| c.equals("d")) {
 				heroi.moveRight(this);
 			} else
-			if (c.equals("A")) {
-				heroi.moveDown(this);
-			} else 
-			if (c.equals("S")) {
+			if (c.equals("A")|| c.equals("a")) {
 				heroi.moveLeft(this);
+			} else 
+			if (c.equals("S")|| c.equals("s")) {
+				heroi.moveDown(this);
 			} else {
 				System.out.println("Esse movimento não é válido para seu Herói");
 				roll++;

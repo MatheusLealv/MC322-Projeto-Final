@@ -70,6 +70,12 @@ public class Heroi extends Unit {
 		if(this.x == 0) {
 			return;
 		}
+		Celula to = mapa.getCelula(this.x - 1, this.y);
+		if(to instanceof Armadilha) {
+			tomarArmadilha((Armadilha)to);
+			to = new CelulaVazia(to.getX(), to.getY());
+			mapa.setCelula(to.getX(), to.getY(), to);
+		}
 		mapa.trocaCel(this.x, this.y, this.x - 1, this.y);
 	}
 	

@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Game {
 
@@ -7,34 +8,16 @@ public class Game {
 		Mapa mapa = new Mapa(N, M);
 				
 		Heroi heroi = Interaction.criarPersonagem();
-		
-		//Esqueleto esqueleto = new Esqueleto(0,1);
-		//System.out.println(heroi.getNome() + " " + esqueleto.getPontosVida());
 		mapa.generateMap(heroi);		
 		
-		mapa.printMap();
-		System.out.println("DONE\n");
 		for(int i = 0; i < 10; i++) {
-			mapa.monstroTurno();
-			System.out.println("DONE\n");
+			//Scanner read = new Scanner(System.in);
+			//int x = read.nextInt();
 			mapa.printMap();
-			System.out.println("DONE\n");
-			
-			System.out.println("VIDA HEROI = " + heroi.getPontosVida());
+			//Interaction.turnoHeroi(heroi, mapa);
+			Interaction.turnoMonstros(mapa);
+			System.out.println();
+			System.out.println("SUA VIDA = " + heroi.getPontosVida());
 		}
-		
-		
-		
-//		heroi.moveRight(mapa);
-//		mapa.printMap();
-//		
-//		System.out.print("\n");
-//		heroi.moveDown(mapa);
-//		mapa.printMap();
-//		
-//		System.out.println("");
-//		
-//		System.out.println("PONTOS DE VIDA: " + heroi.getPontosVida());
 	}
-
 }
