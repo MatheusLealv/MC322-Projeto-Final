@@ -12,11 +12,8 @@ public class Game {
 		//System.out.println(heroi.getNome() + " " + esqueleto.getPontosVida());
 				
 		mapa.generateMap(heroi);
-<<<<<<< HEAD
-=======
 		System.out.println("DONE\n");
 		mapa.monstroTurno();
->>>>>>> 7a921bdc09f85cb98c0b80636d6e9e7f805eee3f
 		mapa.printMap();
 		System.out.println("DONE\n");
 		
