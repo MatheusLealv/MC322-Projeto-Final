@@ -16,7 +16,11 @@ public class Feiticeiro extends Heroi implements Magico{
 		addMagia(new Fireball(this));
 		addMagia(new Teleport(this));
 		
-		setModelo("FE");
+	}
+
+	@Override
+	public String toString() {
+		return "FE";
 	}
 	
 }

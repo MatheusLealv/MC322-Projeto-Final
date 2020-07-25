@@ -7,9 +7,13 @@ public class Armadilha extends Celula{
 		Random rng = new Random();
 		dano = rng.nextInt(2)+1;
 		
-		this.setModelo("XX");
 	}
 	public int getDano() {
 		return dano;
+	}
+	
+	@Override
+	public String toString() {
+		return "XX";
 	}
 }

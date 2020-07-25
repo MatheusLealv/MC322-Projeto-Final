@@ -2,17 +2,11 @@
 public class Celula {
 	protected int x;
 	protected int y;
-	private String modelo;
 	public Celula(int x , int y) {
 		this.x = x;
 		this.y = y;
-		
-		this.modelo = "??";
 	}
 	
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
-	}
 	public int getX(){
 		return this.x;
 	}
@@ -37,7 +31,7 @@ public class Celula {
 	
 	@Override
 	public String toString() {
-		return this.modelo;
+		return "??";
 	}
 	
 }

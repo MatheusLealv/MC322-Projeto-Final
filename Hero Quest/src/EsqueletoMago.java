@@ -10,12 +10,16 @@ public class EsqueletoMago extends Monstro implements Magico{
 		addMagia(new MagicMissile(this));
 		addMagia(new MagicMissile(this));
 		
-		setModelo("EM");
 	}
 	
 	public void makeTurn(Mapa mapa) {
 		mapa.moveRandom(this);
 		this.attackHero(mapa);
 	}
+	
+	@Override
+	public String toString() {
+		return "EM";
+	}	
 	
 }

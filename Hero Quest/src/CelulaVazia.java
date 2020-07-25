@@ -4,7 +4,9 @@ public class CelulaVazia extends Celula{
 	public CelulaVazia(int posx , int posy) {
 		super(posx , posy);
 		
-		setModelo("..");
 	}
-
+	@Override
+	public String toString() {
+		return "..";
+	}
 }
