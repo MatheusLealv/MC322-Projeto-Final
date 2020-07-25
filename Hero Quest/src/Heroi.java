@@ -89,6 +89,10 @@ public class Heroi extends Unit {
 		else if(to instanceof Porta) {
 			((Porta)to).abrir(mapa);
 		}
+		else if(!(to instanceof CelulaVazia)) {
+			System.out.println("Movimento Inválido");
+			return;
+		}
 		mapa.trocaCel(this.x, this.y, this.x - 1, this.y);
 	}
 	
@@ -104,6 +108,10 @@ public class Heroi extends Unit {
 		}
 		else if(to instanceof Porta) {
 			((Porta)to).abrir(mapa);
+		}
+		else if(!(to instanceof CelulaVazia)) {
+			System.out.println("Movimento Inválido");
+			return;
 		}
 		mapa.trocaCel(this.x, this.y, this.x + 1, this.y);
 	}
@@ -121,6 +129,10 @@ public class Heroi extends Unit {
 		else if(to instanceof Porta) {
 			((Porta)to).abrir(mapa);
 		}
+		else if(!(to instanceof CelulaVazia)) {
+			System.out.println("Movimento Inválido");
+			return;
+		}
 		mapa.trocaCel(this.x, this.y, this.x, this.y - 1);
 	}
 	
@@ -136,6 +148,10 @@ public class Heroi extends Unit {
 		}
 		else if(to instanceof Porta) {
 			((Porta)to).abrir(mapa);
+		}
+		else if(!(to instanceof CelulaVazia)) {
+			System.out.println("Movimento Inválido");
+			return;
 		}
 		mapa.trocaCel(this.x, this.y, this.x, this.y + 1);
 	}
