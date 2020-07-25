@@ -6,7 +6,9 @@ public class Anao extends Heroi{
 		super(nome, 2, 2, 7, 3, new ArrayList<Arma>(), new ArrayList<Magia>(), posx,posy);
 		addArma(new EspadaCurta());
 		
-		setModelo("AN");
 	}	
-
+	@Override
+	public String toString() {
+		return "AN";
+	}
 }

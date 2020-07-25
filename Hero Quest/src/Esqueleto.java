@@ -18,12 +18,16 @@ public class Esqueleto extends Monstro{
 			addArma(new Punhal());
 		}
 		
-		setModelo("ES");
 	}
 	
 	public void makeTurn(Mapa mapa) {
 		mapa.moveRandom(this);
 		this.attackHero(mapa);
+	}
+	
+	@Override
+	public String toString() {
+		return "ES";
 	}
 
 }

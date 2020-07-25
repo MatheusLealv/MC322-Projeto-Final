@@ -5,7 +5,6 @@ public class Tesouro extends Celula{
 	public Tesouro(int x , int y) {
 		super(x,y);
 		
-		this.setModelo("$$");
 	}
 	public ArrayList<Dropavel> getTesouro(Unit PC){
 		ArrayList<Dropavel> inside = new ArrayList<Dropavel>();
@@ -52,4 +51,10 @@ public class Tesouro extends Celula{
 		}
 		return inside;
 	}
+	
+	@Override
+	public String toString() {
+		return "$$";
+	}
+	
 }
