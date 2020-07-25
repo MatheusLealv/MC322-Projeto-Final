@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class Mapa {
 	
@@ -97,4 +98,48 @@ public class Mapa {
 	public Celula getCelula(int x, int y) {
 		return this.grid[x][y];
 	}
+	
+	//o monstro na Celula "from" irá se mover em direção ao herói na posição "to"
+	public void moveToHero(Monstro from, Heroi to) {
+		int x_from = from.getX();
+		int y_from = from.getY();
+		
+		int x_to = to.getX();
+		int y_to = to.getY();
+		
+		if(x_from + 1 < this.N && (grid[x_from + 1][y_from] instanceof CelulaVazia) && (x_from < x_to)) {
+			trocaCel(x_from, y_from, x_from + 1, y_from);
+			return;
+		}
+		if(x_from - 1 >= 0 && (grid[x_from - 1][y_from] instanceof CelulaVazia) && (x_from > x_to)) {
+			trocaCel(x_from, y_from, x_from - 1, y_from);
+			return;
+		}
+		
+		if(y_from + 1 < this.M && (grid[x_from][y_from + 1] instanceof CelulaVazia) && (y_from < y_to)) {
+			trocaCel(x_from, y_from, x_from, y_from + 1);
+			return;
+		}
+		if(y_from - 1 >= 0 && (grid[x_from][y_from + 1] instanceof CelulaVazia) && (y_from > y_to)) {
+			trocaCel(x_from, y_from, x_from, y_from - 1);
+			return;
+		}
+	}
+	
+	public void moveRandom(Monstro monstro) {
+		int[] dx = {1, -1, 0, 0};
+		int[] dy = {0, 0, 1, -1};
+		
+		Random rng = new Random();
+		int p = rng.nextInt(4);
+		
+		int x = monstro.getX() + dx[p], y = monstro.getY() + dy[p];
+		
+		if(x >= 0 && y >= 0 && x < N && y < M && (grid[x][y] instanceof CelulaVazia)) {
+			trocaCel(monstro.getX(), monstro.getY(), x, y);
+		}
+	}
 }
+
+
+

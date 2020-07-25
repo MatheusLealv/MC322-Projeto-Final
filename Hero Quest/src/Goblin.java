@@ -9,7 +9,11 @@ public class Goblin extends Monstro{
 		int u = rng.nextInt(3) + 1;
 		for(int j = 0 ; j < u ; j ++) 
 			addArma(new Punhal());
-		
 	}
 	
+	public void makeTurn(Mapa mapa, Heroi hero) {
+		mapa.moveToHero(this, hero);
+	
+		this.attackHero(mapa);
+	}
 }
