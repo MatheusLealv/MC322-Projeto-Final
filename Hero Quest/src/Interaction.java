@@ -10,8 +10,15 @@ public class Interaction {
 		
 		System.out.println("Digite o número correspondente a classe desejada");
 		System.out.println("0-Bárbaro 1-Anão 2-Elfo 3-Feiticeiro");
-
-		int cls = read.nextInt();
+		int cls;
+		while(true) {
+			try {
+				cls = read.nextInt();
+				break;
+			} catch(Exception e) {
+				System.out.println("Por favor digite um número");
+			}
+		}
 		while(true) {
 			switch(cls) {
 				case 0:
