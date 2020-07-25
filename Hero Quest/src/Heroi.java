@@ -33,19 +33,19 @@ public class Heroi extends Unit {
 		while(true) {
 			System.out.println("Você pode procurar um tesouro nas salas adjacentes com wasd");
 			c = read.nextLine();
-			if (c.equals("w")) {
+			if (c.equals("w") && x >= 0) {
 				this.procurarTesouro(grid[x-1][y]);
 				break;
 			} else
-			if (c.equals("d")) {
+			if (c.equals("d") && (y+1) < mapa.getM()) {
 				this.procurarTesouro(grid[x][y+1]);
 				break;
 			} else
-			if (c.equals("a")) {
+			if (c.equals("a") && (x+1) < mapa.getN()) {
 				this.procurarTesouro(grid[x+1][y]);
 				break;
 			} else 
-			if (c.equals("s")) {
+			if (c.equals("s") && (y-1) >= 0) {
 				this.procurarTesouro(grid[x][y-1]);
 				break;
 			} else if(!c.equals("0")) {
@@ -59,15 +59,20 @@ public class Heroi extends Unit {
 	public void procurarTesouro(Celula C) {
 		//PODE ENCONTRAR UM MONSTRO
 		//O QUE FAZER QUANDO ENCONTRAR UM MONSTRO ?
-		if(C instanceof Monstro) {
-			
-		}
+		
 		
 		if(C instanceof Tesouro) {
 			Tesouro tesouro = (Tesouro)(C);
-			tesouro.getTesouro(this);
-			
-			C = new CelulaVazia(C.getX(), C.getY());
+			ArrayList<Dropavel> bau = tesouro.getTesouro(this);
+			if(bau.get(0) instanceof Monstro) {
+				C = (Celula) bau.get(0);
+			}
+			else {
+				C = new CelulaVazia(C.getX(), C.getY());
+			}
+		}
+		else {
+			System.out.println("Nada encontrado!");
 		}
 	}
 	
