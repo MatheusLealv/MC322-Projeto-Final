@@ -116,12 +116,12 @@ public class Mapa {
 	}
 	
 	public void moveHeroi(Heroi heroi,int roll) {
-		System.out.println(heroi.getNome()+", você tirou "+roll+"nos dados para se movimentar");
+		System.out.println(heroi.getNome()+", você tirou "+roll+" nos dados para se movimentar");
 		System.out.println("Para encerrar sua movimentação, aperte 0");
 		printMap();
 		Scanner read = new Scanner(System.in);
 		String c = read.nextLine();
-		while(!c.equals("0")||roll==0) {
+		while(!c.equals("0")&&roll>0) {
 			if (c.equals("W")) {
 				heroi.moveUp(this);
 			} else

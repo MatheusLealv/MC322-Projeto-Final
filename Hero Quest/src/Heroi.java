@@ -26,23 +26,29 @@ public class Heroi extends Unit {
 	}
 
 	public void procurarTesouro(Mapa mapa) {
+		mapa.printMap();
 		System.out.println("Você pode procurar um tesouro nas salas adjacentes com WASD");
 		Celula[][] grid = mapa.getMapa();
-		mapa.printMap();
 		Scanner read = new Scanner(System.in);
-		String c = read.nextLine();
+		String c;
 		while(true) {
-			if (c.equals("W")) {
+			System.out.println("Você pode procurar um tesouro nas salas adjacentes com WASD");
+			c = read.nextLine();
+			if (c.equals("w")) {
 				this.procurarTesouro(grid[x-1][y]);
+				break;
 			} else
-			if (c.equals("D")) {
+			if (c.equals("d")) {
 				this.procurarTesouro(grid[x][y+1]);
+				break;
 			} else
-			if (c.equals("A")) {
+			if (c.equals("a")) {
 				this.procurarTesouro(grid[x+1][y]);
+				break;
 			} else 
-			if (c.equals("S")) {
+			if (c.equals("s")) {
 				this.procurarTesouro(grid[x][y-1]);
+				break;
 			} else {
 				System.out.println("Por favor faça uma ação válida");
 				
@@ -111,7 +117,7 @@ public class Heroi extends Unit {
 		}
 		mapa.trocaCel(this.x, this.y, this.x, this.y + 1);
 	}
-	
+	@Override
 	public void death(Mapa mapa) {
 		System.out.println("Você morreu e foi consumido pelas trevas");
 	}
