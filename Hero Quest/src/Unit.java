@@ -122,6 +122,10 @@ public class Unit extends Celula{
 		int dano = qtdCaveira - qtdEscudo;
 		if(dano < 0) dano = 0;
 		enemy.diminuirVida(dano);
+		
+		if(arma.ehDestruida()) {
+			this.removeArma(arma);
+		}
 	}
 	//ATUALIZAR PONTOS DE INTELIGENCIA
 	public void atualizarPI(int pontosInteligencia) {
