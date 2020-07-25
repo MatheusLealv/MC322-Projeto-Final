@@ -58,7 +58,7 @@ public class Unit extends Celula{
 			this.magias.remove(magia);
 		}
 		else {
-			System.out.println("Você não possui essa arma");
+			System.out.println("Você não possui essa magia");
 		}
 	}
 	
@@ -165,5 +165,22 @@ public class Unit extends Celula{
 	
 	public ArrayList<Arma> getArmas(){
 		return this.armas;
+	}
+	public ArrayList<Magia> getMagias(){
+		return this.magias;
+	}
+	
+	public Arma getArma() {
+		if(this.getArmas().isEmpty()) {
+			return null;
+		}
+		return this.getArmas().get(0);
+	}
+	
+	public Magia getMagia() {
+		if(this.getMagias().isEmpty()) {
+			return null;
+		}
+		return this.getMagias().get(0);
 	}
 }
