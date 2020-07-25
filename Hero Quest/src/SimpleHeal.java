@@ -14,5 +14,8 @@ public class SimpleHeal extends Magia implements MagiaHeal{
 		
 		this.magico.removeMagia(this);
 	}
-
+	@Override
+	public String toString() {
+		return "Simple Heal";
+	}
 }
