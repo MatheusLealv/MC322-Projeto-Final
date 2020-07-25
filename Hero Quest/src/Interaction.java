@@ -48,6 +48,8 @@ public class Interaction {
 				if (c==2) {
 					if(heroi.getMagias().isEmpty()) {
 						System.out.println("Você não possui magias");
+					} else if(!(heroi instanceof Magico)) {
+						System.out.println("Você não pode usar magias. Não tente isso novamente");
 					} else {
 						realizarMagia(mapa,heroi);
 						break;
@@ -194,7 +196,7 @@ public class Interaction {
 				i ++ ;
 			}
 			int operacao = read.nextInt();
-			while(operacao < 0 || operacao >= monstros.size()) {
+			while(operacao < 0 || operacao >= magias.size()) {
 				System.out.println("Opção inválida! Digite novamente");
 				operacao = read.nextInt();
 			}
