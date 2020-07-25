@@ -10,14 +10,13 @@ public class Game {
 		Heroi heroi = Interaction.criarPersonagem();
 		mapa.generateMap(heroi);		
 		
-		for(int i = 0; i < 10; i++) {
-			//Scanner read = new Scanner(System.in);
-			//int x = read.nextInt();
+		while(heroi.isAlive()) {
 			mapa.printMap();
-			//Interaction.turnoHeroi(heroi, mapa);
+			Interaction.turnoHeroi(heroi, mapa);
+			if(heroi.isAlive() == false) {
+				break;
+			}
 			Interaction.turnoMonstros(mapa);
-			System.out.println();
-			System.out.println("SUA VIDA = " + heroi.getPontosVida());
 		}
 	}
 }
