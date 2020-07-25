@@ -115,23 +115,6 @@ public class Mapa {
 		return null;
 	}
 	
-	public void monstroTurno() { 
-		Heroi ptr = getHeroi();
-		for(int i = 0 ; i < N ; i ++) {
-			for(int j = 0 ; j < M ; j ++) {
-				if((grid[i][j] instanceof Monstro)) {
-					if((grid[i][j] instanceof Goblin)) {
-						moveToHero(((Monstro) grid[i][j]), ptr);
-					}
-					else {
-						moveRandom((Monstro) grid[i][j]);
-					}
-				}
-				((Monstro) grid[i][j]).attackHero(this);
-			}
-		}
-	}
-	
 	public void moveHeroi(Heroi heroi,int roll) {
 		System.out.println(heroi.getNome()+", você tirou "+roll+"nos dados para se movimentar");
 		System.out.println("Para encerrar sua movimentação, aperte 0");
@@ -159,6 +142,29 @@ public class Mapa {
 		}
 	}
 	
+
+	public void monstroTurno() {
+        Heroi ptr = getHeroi();
+        for(int i = 0 ; i < N ; i ++) {
+            for(int j = 0 ; j < M ; j ++) {
+                if((grid[i][j] instanceof Monstro)) {
+                    if((grid[i][j] instanceof Goblin)) {
+                        moveToHero(((Monstro) grid[i][j]), ptr);
+                    }
+                    else {
+                        moveRandom((Monstro) grid[i][j]);
+                    }
+                }
+            }
+        }
+        for(int i = 0 ; i < N ; i ++) {
+            for(int j = 0 ; j < M ; j ++) {
+                if((grid[i][j] instanceof Monstro)) {
+                    ((Monstro)grid[i][j]).attackHero(this);
+                }
+            }
+        }
+    }
 	//o monstro na Celula "from" irá se mover em direção ao herói na posição "to"
 	public void moveToHero(Monstro from, Heroi to) {
 		int x_from = from.getX();
