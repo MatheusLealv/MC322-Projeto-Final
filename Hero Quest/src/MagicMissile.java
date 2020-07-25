@@ -23,5 +23,8 @@ public class MagicMissile extends Magia implements MagiaAtaque , MagiaSingle{
 		
 		this.magico.removeMagia(this);
 	}
-
+	@Override
+	public String toString() {
+		return "Missile";
+	}
 }

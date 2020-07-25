@@ -30,4 +30,8 @@ public class Fireball extends Magia implements MagiaAtaque, MagiaEmArea{
 		
 		this.magico.removeMagia(this);
 	}
+	@Override
+	public String toString() {
+		return "Fireball";
+	}
 }
