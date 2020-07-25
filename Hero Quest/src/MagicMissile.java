@@ -17,7 +17,7 @@ public class MagicMissile extends Magia{
 				if(dano < 0) {
 					dano = 0;
 				}
-				alvo.diminuirVida(dano);
+				alvo.danoDireto(dano);
 			}
 		}
 		

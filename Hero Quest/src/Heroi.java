@@ -8,7 +8,7 @@ public class Heroi extends Unit {
 	public Heroi(String nome, int numDadosAtaque, int numDadosDefesa, int pontosVida, int pontosInteligencia, ArrayList<Arma> armas,ArrayList<Magia> magias, int posx,int posy) {
 		super(numDadosAtaque,numDadosDefesa,pontosVida,pontosInteligencia,armas, magias, posx,posy);
 		this.nome = nome;
-		
+
 		this.armadura = new Armadura(0);
 	}
 	public String getNome() {

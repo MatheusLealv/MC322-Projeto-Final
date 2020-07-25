@@ -150,6 +150,10 @@ public class Unit extends Celula{
 		if(this.pontosVida < 0) this.pontosVida = 0;
 	}
 	
+	public void danoDireto(int dano) {
+		this.pontosVida -= dano;
+	}
+	
 	public int getNumDadosAtaque() {
 		return this.numDadosAtaque;
 	}

@@ -5,7 +5,7 @@ public class Armadilha extends Celula{
 	public Armadilha(int x , int y){
 		super(x,y);
 		Random rng = new Random();
-		dano = rng.nextInt(3)+1;
+		dano = rng.nextInt(2)+1;
 	}
 	public int getDano() {
 		return dano;
