@@ -194,7 +194,7 @@ public class Interaction {
 				i ++ ;
 			}
 			int operacao = read.nextInt();
-			while(operacao < 0 || operacao >= monstros.size()) {
+			while(operacao < 0 || operacao >= magias.size()) {
 				System.out.println("Opção inválida! Digite novamente");
 				operacao = read.nextInt();
 			}
