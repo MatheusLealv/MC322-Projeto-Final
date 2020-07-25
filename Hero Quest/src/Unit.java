@@ -62,8 +62,14 @@ public class Unit extends Celula{
 		}
 	}
 	
-	public void usarTeleporte() {
-		
+	public void usarTeleporte(Celula C) {
+		for(Magia cur: magias) {
+			if(cur instanceof Teleport) {
+				((Teleport) cur).usarMagia(C);
+				magias.remove(cur);
+				return;
+			}
+		}
 	}
 	public void usarFireball(Unit enemy) {
 		for(Magia cur : magias) {
