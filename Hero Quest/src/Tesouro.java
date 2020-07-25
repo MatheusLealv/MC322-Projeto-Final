@@ -9,7 +9,7 @@ public class Tesouro extends Celula{
 	public ArrayList<Dropavel> getTesouro(Unit PC){
 		ArrayList<Dropavel> inside = new ArrayList<Dropavel>();
 		Random rng = new Random();
-		int rnd = rng. nextInt(4)+1;
+		int rnd = rng. nextInt(5)+1;
 		if(rnd == 1) { // dropa arma
 			int a = rng.nextInt(3);
 			if(a == 0) {
@@ -49,7 +49,7 @@ public class Tesouro extends Celula{
 				inside.add(new Armadura(a+3));
 			}
 		}
-		else {
+		else if(rnd == 4){
 			int a = rng.nextInt(3) + 1;
 			if(a == 0) {
 				inside.add((Dropavel) new Esqueleto(getX() , getY()));
@@ -60,6 +60,9 @@ public class Tesouro extends Celula{
 			else {
 				inside.add((Dropavel) new Goblin(getX() , getY())); 
 			}
+		}
+		else if(rnd == 5) {
+			((Heroi) PC).tomarPocao(new Pocao());
 		}
 		return inside;
 	}
