@@ -33,6 +33,31 @@ public class Interaction {
 		DadosRed dado = new DadosRed();
 		int roll = dado.roll();
 		roll += dado.roll();
+		mapa.moveHeroi(heroi, roll);
+		while(true) {
+			System.out.println("Escolha Sua Ação:");
+			System.out.println("1-Arma 2-Magia 3-Procurar Tesouro");
+			Scanner read = new Scanner(System.in);
+			int c = read.nextInt();
+			Celula[][] grid = mapa.getMapa();
+			while(true) {
+				if (c==1) {
+					realizarAtaque(mapa,heroi);
+				} else
+				if (c==2) {
+					if(heroi.getMagias().isEmpty()) {
+						System.out.println("Você não possui magias");
+					} else {
+						realizarMagia(mapa,heroi);
+					}
+				} else
+				if (c==3) {
+					heroi.procurarTesouro(mapa);
+				} else {
+					System.out.println("Por favor digite uma ação válida");
+				}
+			}
+		}
 		
 		//heroi.move(mapa, roll);
 	}
@@ -81,7 +106,7 @@ public class Interaction {
 		}
 		
 	}
-	public void realizarAtaque(Mapa mapa, Heroi heroi) {
+	public static void realizarAtaque(Mapa mapa, Heroi heroi) {
 		Scanner read = new Scanner(System.in);
 		int[] dx = {1, -1, 0, 0, 2, -2, 0, 0};
 		int[] dy = {0, 0, 1, -1, 0, 0, 2, -2};
