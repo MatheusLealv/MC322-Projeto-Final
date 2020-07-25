@@ -162,7 +162,7 @@ public class Interaction {
 		}
 	}
 	
-	public void realizarMagia(Mapa mapa, Heroi heroi) {
+	public static void realizarMagia(Mapa mapa, Heroi heroi) {
 		int[] dx = {1, -1, 0, 0};
 		int[] dy = {0, 0, 1, -1};
 		ArrayList<Monstro> monstros = new ArrayList<Monstro>();
