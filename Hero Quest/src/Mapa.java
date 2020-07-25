@@ -120,7 +120,7 @@ public class Mapa {
 			trocaCel(x_from, y_from, x_from, y_from + 1);
 			return;
 		}
-		if(y_from - 1 >= 0 && (grid[x_from][y_from + 1] instanceof CelulaVazia) && (y_from > y_to)) {
+		if(y_from - 1 >= 0 && (grid[x_from][y_from - 1] instanceof CelulaVazia) && (y_from > y_to)) {
 			trocaCel(x_from, y_from, x_from, y_from - 1);
 			return;
 		}
