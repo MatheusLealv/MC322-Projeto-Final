@@ -48,6 +48,8 @@ public class Interaction {
 				if (c==2) {
 					if(heroi.getMagias().isEmpty()) {
 						System.out.println("Você não possui magias");
+					} else if(!(heroi instanceof Magico)) {
+						System.out.println("Você não pode usar magias. Não tente isso novamente");
 					} else {
 						realizarMagia(mapa,heroi);
 						break;
