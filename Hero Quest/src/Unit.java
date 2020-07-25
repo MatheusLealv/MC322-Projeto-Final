@@ -99,11 +99,13 @@ public class Unit extends Celula{
 		}
 	}
 	
-	public void combate(Unit enemy,Arma arma) {
+	public void combate(Unit enemy) {
 		DadosCombat dado = new DadosCombat();
 		int dadosAtaque = this.numDadosAtaque;
 		int qtdCaveira = 0;
-		if(arma!=null) dadosAtaque+=arma.getBonusDado();
+		for(Arma arma: armas) {
+			dadosAtaque+=arma.getBonusDado();
+		}
 		//ataque
 		for(int i = 0; i < dadosAtaque; i++) {
 			if(dado.ehCaveira()) {
@@ -123,8 +125,10 @@ public class Unit extends Celula{
 		if(dano < 0) dano = 0;
 		enemy.diminuirVida(dano);
 		
-		if(arma.ehDestruida()) {
-			this.removeArma(arma);
+		for(Arma arma: armas) {
+			if(arma.ehDestruida()) {
+				this.removeArma(arma);
+			}
 		}
 	}
 	//ATUALIZAR PONTOS DE INTELIGENCIA
