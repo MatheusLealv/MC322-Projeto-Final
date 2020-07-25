@@ -101,6 +101,35 @@ public class Mapa {
 		return this.grid[x][y];
 	}
 	
+	private Heroi getHeroi() {
+		for(int i = 0 ; i < N ; i ++) {
+			for(int j = 0 ; j < M ; j ++) {
+				if((grid[i][j] instanceof Heroi)) {
+					return ((Heroi) grid[i][j]);
+				}
+			}
+		}
+		// Se não existir 
+		System.out.println("Deu erro");
+		return null;
+	}
+	
+	public void monstroTurno() { 
+		Heroi ptr = getHeroi();
+		for(int i = 0 ; i < N ; i ++) {
+			for(int j = 0 ; j < M ; j ++) {
+				if((grid[i][j] instanceof Monstro)) {
+					if((grid[i][j] instanceof Goblin)) {
+						moveToHero(((Monstro) grid[i][j]), ptr);
+					}
+					else {
+						moveRandom((Monstro) grid[i][j]);
+					}
+				}
+				((Monstro) grid[i][j]).attackHero(this);
+			}
+		}
+	}
 	//o monstro na Celula "from" irá se mover em direção ao herói na posição "to"
 	public void moveToHero(Monstro from, Heroi to) {
 		int x_from = from.getX();
