@@ -13,7 +13,7 @@ public class EsqueletoMago extends Monstro implements Magico{
 	
 	public void makeTurn(Mapa mapa) {
 		mapa.moveRandom(this);
-		
+		this.attackHero(mapa);
 	}
 	
 }
