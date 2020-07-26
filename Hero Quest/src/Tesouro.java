@@ -19,8 +19,11 @@ public class Tesouro extends Celula{
 					String pega = read.nextLine();	
 					if(pega.equals("0")) {
 						inside.add(new EspadaCurta());
+						break;
 					} else if(!(pega.equals("1"))) {
 						System.out.println("Ação inválida");
+					} else {
+						break;
 					}
 				}
 			}
@@ -31,8 +34,11 @@ public class Tesouro extends Celula{
 					String pega = read.nextLine();	
 					if(pega.equals("0")) {
 						inside.add(new EspadaLonga());
+						break;
 					} else if(!(pega.equals("1"))) {
 						System.out.println("Ação inválida");
+					} else {
+						break;
 					}
 				}
 			}
