@@ -134,7 +134,7 @@ public class Mapa {
 			} else 
 			if (c.equals("S")|| c.equals("s")) {
 				heroi.moveDown(this);
-			} else {
+			} else if(!c.equals("0")){
 				System.out.println("Esse movimento não é válido para seu Herói");
 				roll++;
 			}

@@ -18,8 +18,10 @@ public class Heroi extends Unit {
 		this.atualizarPV(this.getPontosVida() - Math.max(0,x-this.armadura.getDefesa()));
 	}
 	public void atualizarArmadura(Armadura armadura) {
-		this.armadura = armadura;
-	}
+		if(armadura.getDefesa()>this.armadura.getDefesa()) {
+			this.armadura = armadura;
+		}
+ 	}
 	
 	public void tomarArmadilha(Armadilha armadilha) {
 		danoDireto(armadilha.getDano());
@@ -66,8 +68,20 @@ public class Heroi extends Unit {
 			ArrayList<Dropavel> bau = tesouro.getTesouro(this);
 			if(bau.get(0) instanceof Monstro) {
 				C = (Celula) bau.get(0);
+				mapa.printMap();
 			}
 			else {
+				for(Dropavel item : bau) {
+					if(item instanceof Arma) {
+						this.addArma((Arma)item);
+					}
+					if(item instanceof Armadura) {
+						this.atualizarArmadura((Armadura)item);
+					}
+					if(item instanceof Magia) {
+						this.addMagia((Magia)item);
+					}
+				}
 				mapa.setCelula(C.getX(), C.getY(), new CelulaVazia(C.getX(), C.getY()));
 			}
 		}
