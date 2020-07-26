@@ -26,7 +26,7 @@ public class Heroi extends Unit {
 	}
 
 	public void procurarTesouro(Mapa mapa) {
-		mapa.printMap();
+		mapa.printMap(this);
 		Celula[][] grid = mapa.getMapa();
 		Scanner read = new Scanner(System.in);
 		String c;
@@ -52,7 +52,7 @@ public class Heroi extends Unit {
 				System.out.println("Por favor faça uma ação válida");
 				
 			}
-			mapa.printMap();
+			mapa.printMap(this);
 		}
 	}
 	

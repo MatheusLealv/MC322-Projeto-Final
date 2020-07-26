@@ -6,7 +6,7 @@ public class Teleport extends Magia implements MagiaTeleporte {
 	}
 	
 	public void usarMagia(Mapa mapa, Celula C) {
-		if((C instanceof CelulaVazia) && this.magico.isVisible(C)) {
+		if((C instanceof CelulaVazia) && this.magico.isVisible(mapa, C)) {
 			if(this.testarMagia()) {
 				mapa.trocaCel(this.magico.getX(), this.magico.getY(), C.getX(), C.getY());
 			}
