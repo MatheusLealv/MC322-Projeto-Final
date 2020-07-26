@@ -7,8 +7,8 @@ public class Monstro extends Unit implements Dropavel{
 	}
 	
 	public void attackHero(Mapa mapa){
-		
 		Heroi heroi = mapa.getHeroi();
+		if(!heroi.isAlive()) return;
 		this.combate(mapa, heroi, this.armas);
 	}
 	@Override
