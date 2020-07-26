@@ -66,8 +66,9 @@ public class Heroi extends Unit {
 		if(C instanceof Tesouro) {
 			Tesouro tesouro = (Tesouro)(C);
 			ArrayList<Dropavel> bau = tesouro.getTesouro(this);
-			if(bau.get(0) instanceof Monstro) {
+			if(!bau.isEmpty() && bau.get(0) instanceof Monstro) {
 				C = (Celula) bau.get(0);
+				mapa.setCelula(C.getX(), C.getY(), C);
 				mapa.printMap(heroi);
 			}
 			else {
