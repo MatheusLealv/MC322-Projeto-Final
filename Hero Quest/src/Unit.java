@@ -6,7 +6,7 @@ public class Unit extends Celula{
 	private int numDadosDefesa;
 	private int pontosVida;
 	private int pontosInteligencia;
-	private ArrayList<Arma> armas = new ArrayList<Arma>();
+	protected ArrayList<Arma> armas = new ArrayList<Arma>();
 	private ArrayList<Magia> magias = new ArrayList<Magia>();
 	
 	public Unit(int numDadosAtaque, int numDadosDefesa, int pontosVida, int pontosInteligencia, ArrayList<Arma> armas, ArrayList<Magia> magias,int posx , int posy) {
@@ -136,14 +136,15 @@ public class Unit extends Celula{
 		for(Arma arma: armas) {
 			if(Math.abs(this.getX() - enemy.getX()) + Math.abs(this.getY() - enemy.getY()) <= arma.getAlcance()) {
 				dadosAtaque+=arma.getBonusDado();
-				
 				armasUsadas.add(arma);
 			}
 		}
-		//ataque
-		for(int i = 0; i < dadosAtaque; i++) {
-			if(dado.ehCaveira()) {
-				qtdCaveira ++;
+		if(this instanceof Heroi) {
+			//ataque
+			for(int i = 0; i < dadosAtaque; i++) {
+				if(dado.ehCaveira()) {
+					qtdCaveira ++;
+				}
 			}
 		}
 		//o inimigo tentará se defender

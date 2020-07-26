@@ -6,24 +6,10 @@ public class Monstro extends Unit implements Dropavel{
 		
 	}
 	
-	public void attackHero(Mapa mapa) {
-		int[] dx = {1, -1, 0, 0};
-		int[] dy = {0, 0, 1, -1};
-		for(int i = 0; i < 4; i++) {
-			int x = this.getX() + dx[i], y = this.getY() + dy[i];
-			if(x >= 0 && x < mapa.getN() && y >= 0 && y < mapa.getM() && (mapa.getCelula(x, y) instanceof Heroi)){
-				Heroi heroi = (Heroi)mapa.getCelula(x, y);
-				
-				if(this instanceof EsqueletoMago) {
-					this.usarMagicMissile(heroi);
-				}
-				else {
-					Arma arma = this.getArma();
-					this.combate(mapa,heroi, this.getArmas());
-				}
-
-			}
-		}
+	public void attackHero(Mapa mapa){
+		
+		Heroi heroi = mapa.getHeroi();
+		this.combate(mapa, heroi, this.armas);
 	}
 	@Override
 	public void death(Mapa mapa) {
