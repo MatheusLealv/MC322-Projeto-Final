@@ -159,7 +159,6 @@ public class Unit extends Celula{
 		int dano = qtdCaveira - qtdEscudo;
 		if(dano < 0) dano = 0;
 		enemy.diminuirVida(dano);
-		System.out.println(enemy.getNome()+" recebeu "+dano+" de dano.");
 		
 		if(enemy.getPontosVida()<=0) {
 			enemy.death(mapa);
@@ -200,11 +199,13 @@ public class Unit extends Celula{
 	}
 	public void diminuirVida(int x) {
 		this.pontosVida -= x;
+		System.out.println(this.getNome()+" recebeu "+x+" de dano.");
 		if(this.pontosVida < 0) this.pontosVida = 0;
 	}
 	
 	public void danoDireto(int dano) {
 		this.pontosVida -= dano;
+		System.out.println(this.getNome()+" recebeu "+x+" de dano.");
 	}
 	
 	public int getNumDadosAtaque() {

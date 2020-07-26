@@ -29,6 +29,8 @@ public class Interaction {
 					return new Elfo(name,0,0);
 				case 3:
 					return new Feiticeiro(name,0,0);
+				case 666: //Personagem secreto
+					return new Kirito(name,0,0);
 				default:
 					System.out.println("Por favor digite um número válido");
 					cls = read.nextInt();

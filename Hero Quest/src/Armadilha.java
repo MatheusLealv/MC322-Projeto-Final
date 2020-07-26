@@ -9,6 +9,7 @@ public class Armadilha extends Celula{
 		
 	}
 	public int getDano() {
+		System.out.println("Cuidado onde pisa! Você acaba de cair numa armadilha e receber "+dano+" de dano!");
 		return dano;
 	}
 	
