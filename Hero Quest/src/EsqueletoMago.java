@@ -22,4 +22,8 @@ public class EsqueletoMago extends Monstro implements Magico{
 		return "EM";
 	}	
 	
+	@Override
+	public String getNome() {
+		return "Esqueleto Mago";
+	}
 }

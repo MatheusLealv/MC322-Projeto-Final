@@ -22,4 +22,8 @@ public class Goblin extends Monstro{
 		return "GO";
 	}
 	
+	@Override
+	public String getNome() {
+		return "Goblin";
+	}
 }

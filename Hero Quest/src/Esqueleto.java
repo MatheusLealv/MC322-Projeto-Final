@@ -29,5 +29,10 @@ public class Esqueleto extends Monstro{
 	public String toString() {
 		return "ES";
 	}
+	
+	@Override
+	public String getNome() {
+		return "Esqueleto";
+	}
 
 }
