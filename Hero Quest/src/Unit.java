@@ -128,19 +128,22 @@ public class Unit extends Celula{
 	public void combate(Mapa mapa,Unit enemy, ArrayList<Arma> armas) {
 		DadosCombat dado = new DadosCombat();
 		ArrayList<Arma> armasUsadas = new ArrayList<Arma>();
-		int dadosAtaque = this.numDadosAtaque;
+		int dadosAtaque = 0;
 		int qtdCaveira = 0;
 
+		if(Math.abs(this.getX() - enemy.getX()) + Math.abs(this.getY() - enemy.getY()) <= 1) {
+			dadosAtaque = this.getNumDadosAtaque();
+		}
+		
 		for(Arma arma: this.getArmas()) {
 			if(!armas.contains(arma) && !(arma instanceof Punhal)) {
 				dadosAtaque -= arma.getBonusDado();
 			}
 		}
 				
-		this.getNumDadosAtaque();
 		for(Arma arma: armas) {
-			if( !((this.getX() == enemy.getX() || this.getY() == enemy.getY()) && Math.abs(this.getX() - enemy.getX()) + Math.abs(this.getY() - enemy.getY()) <= arma.getAlcance())) {
-				dadosAtaque -=arma.getBonusDado();
+			if((arma instanceof Punhal) && ((this.getX() == enemy.getX() || this.getY() == enemy.getY()) && Math.abs(this.getX() - enemy.getX()) + Math.abs(this.getY() - enemy.getY()) <= arma.getAlcance())) {
+				dadosAtaque +=arma.getBonusDado();
 				armasUsadas.add(arma);
 			}
 		}
