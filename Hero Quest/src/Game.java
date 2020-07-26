@@ -11,7 +11,7 @@ public class Game {
 		mapa.generateMap(heroi);		
 		
 		while(heroi.isAlive()) {
-			mapa.printMap();
+			mapa.printMap(heroi);
 			Interaction.turnoHeroi(heroi, mapa);
 			if(heroi.isAlive() == false) {
 				break;

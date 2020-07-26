@@ -27,8 +27,8 @@ public class Heroi extends Unit {
 		danoDireto(armadilha.getDano());
 	}
 
-	public void procurarTesouro(Mapa mapa) {
-		mapa.printMap();
+	public void procurarTesouro(Mapa mapa, Heroi heroi) {
+		mapa.printMap(this);
 		Celula[][] grid = mapa.getMapa();
 		Scanner read = new Scanner(System.in);
 		String c;
@@ -36,29 +36,29 @@ public class Heroi extends Unit {
 			System.out.println("Você pode procurar um tesouro nas salas adjacentes com wasd");
 			c = read.nextLine();
 			if (c.equals("w") && x >= 0) {
-				this.procurarTesouro(mapa, grid[x-1][y]);
+				this.procurarTesouro(mapa, grid[x-1][y], heroi);
 				break;
 			} else
 			if (c.equals("d") && (y+1) < mapa.getM()) {
-				this.procurarTesouro(mapa, grid[x][y+1]);
+				this.procurarTesouro(mapa, grid[x][y+1], heroi);
 				break;
 			} else
 			if (c.equals("s") && (x+1) < mapa.getN()) {
-				this.procurarTesouro(mapa, grid[x+1][y]);
+				this.procurarTesouro(mapa, grid[x+1][y], heroi);
 				break;
 			} else 
 			if (c.equals("a") && (y-1) >= 0) {
-				this.procurarTesouro(mapa, grid[x][y-1]);
+				this.procurarTesouro(mapa, grid[x][y-1], heroi);
 				break;
 			} else if(!c.equals("0")) {
 				System.out.println("Por favor faça uma ação válida");
 				
 			}
-			mapa.printMap();
+			mapa.printMap(this);
 		}
 	}
 	
-	public void procurarTesouro(Mapa mapa, Celula C) {
+	public void procurarTesouro(Mapa mapa, Celula C, Heroi heroi) {
 		//PODE ENCONTRAR UM MONSTRO
 		//O QUE FAZER QUANDO ENCONTRAR UM MONSTRO ?
 		
@@ -68,7 +68,7 @@ public class Heroi extends Unit {
 			ArrayList<Dropavel> bau = tesouro.getTesouro(this);
 			if(bau.get(0) instanceof Monstro) {
 				C = (Celula) bau.get(0);
-				mapa.printMap();
+				mapa.printMap(heroi);
 			}
 			else {
 				for(Dropavel item : bau) {

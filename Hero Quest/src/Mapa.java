@@ -138,7 +138,7 @@ public class Mapa {
 				System.out.println("Esse movimento não é válido para seu Herói");
 				roll++;
 			}
-			printMap();
+			printMap(heroi);
 			roll--;
 		}
 	}
@@ -216,10 +216,22 @@ public class Mapa {
 		return new Pair(monstro.getX() , monstro.getY());
 	}
 	
-	public void printMap() {
+	public void printMap(Heroi heroi) {
 		for(int i = 0; i < this.N; i ++) {
 			for(int j = 0; j < this.M; j++) {
-				System.out.print(this.grid[i][j] + " ");
+				if(heroi.isVisible(this, this.grid[i][j])) {
+					Celula C = this.grid[i][j];
+					if(C instanceof Armadilha) {
+						System.out.print(".. ");
+					}
+					else if(C instanceof Tesouro) {
+						System.out.print(".. ");
+					}
+					else System.out.print(this.grid[i][j] + " ");
+				}
+				else{
+					System.out.print("@@ ");
+				}
 			}
 			System.out.println();
 		}
