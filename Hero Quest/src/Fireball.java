@@ -23,7 +23,11 @@ public class Fireball extends Magia implements MagiaAtaque, MagiaEmArea{
 			if(0 <= xi && xi < N && 0 <= yi && yi < M) {
 				Celula C = mapa.getCelula(xi, yi);
 				if(C instanceof Unit) {
-					((Unit) C).danoDireto(6);
+					if(i==4) {
+						((Unit) C).danoDireto(6);
+					} else {
+						((Unit) C).danoDireto(3);
+					}
 				}
 			}
 		}

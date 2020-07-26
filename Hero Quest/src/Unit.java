@@ -197,15 +197,15 @@ public class Unit extends Celula{
 	public void aumentarVida(int x) {
 		this.pontosVida += x;
 	}
-	public void diminuirVida(int x) {
-		this.pontosVida -= x;
-		System.out.println(this.getNome()+" recebeu "+x+" de dano.");
+	public void diminuirVida(int dano) {
+		this.pontosVida -= dano;
+		System.out.println(this.getNome()+" recebeu "+dano+" de dano.");
 		if(this.pontosVida < 0) this.pontosVida = 0;
 	}
 	
 	public void danoDireto(int dano) {
 		this.pontosVida -= dano;
-		System.out.println(this.getNome()+" recebeu "+x+" de dano.");
+		System.out.println(this.getNome()+" recebeu "+dano+" de dano.");
 	}
 	
 	public int getNumDadosAtaque() {

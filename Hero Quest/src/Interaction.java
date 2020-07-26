@@ -29,7 +29,7 @@ public class Interaction {
 					return new Elfo(name,0,0);
 				case 3:
 					return new Feiticeiro(name,0,0);
-				case 666: //Personagem secreto
+				case 322: //Personagem secreto
 					return new Kirito(name,0,0);
 				default:
 					System.out.println("Por favor digite um número válido");
@@ -46,6 +46,7 @@ public class Interaction {
 
 		Scanner read = new Scanner(System.in);
 		while(true) {
+			System.out.println("HP: "+heroi.getPontosVida());
 			System.out.println("Escolha Sua Ação:");
 			System.out.println("1-Arma 2-Magia 3-Procurar Tesouro");
 			int c = read.nextInt();

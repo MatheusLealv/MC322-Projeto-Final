@@ -12,8 +12,11 @@ public class Game {
 		
 		while(heroi.isAlive()) {
 			mapa.printMap(heroi);
+			System.out.println("HP: "+heroi.getPontosVida());
 			Interaction.turnoHeroi(heroi, mapa);
+			System.out.println("HP: "+heroi.getPontosVida());
 			if(heroi.isAlive() == false) {
+				System.out.println("morreu");
 				break;
 			}
 			Interaction.turnoMonstros(mapa);
