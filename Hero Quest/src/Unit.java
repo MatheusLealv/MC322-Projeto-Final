@@ -86,9 +86,6 @@ public class Unit extends Celula{
 		if(magias.contains(magia)) {
 			this.magias.remove(magia);
 		}
-		else {
-			System.out.println("Você não possui essa magia");
-		}
 	}
 	
 	public void usarTeleporte(Mapa mapa, Celula C) {
