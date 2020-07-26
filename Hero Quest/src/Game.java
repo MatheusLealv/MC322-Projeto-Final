@@ -2,13 +2,14 @@ import java.util.Scanner;
 
 public class Game {
 
-	public static void start() {
+	public static void start() {		
 		// ------ TESTES -------
 		int N = 5, M = 5; // MODIFICAR
 		Mapa mapa = new Mapa(N, M);
 				
 		Heroi heroi = Interaction.criarPersonagem();
-		mapa.generateMap(heroi);		
+		mapa.generateMap(heroi);
+
 		
 		while(heroi.isAlive()) {
 			mapa.printMap(heroi);
