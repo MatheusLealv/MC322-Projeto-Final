@@ -61,7 +61,7 @@ public class Tesouro extends Celula{
 				inside.add(new Teleport(PC));
 			}
 		} else if(rnd == 3) { //dropa armadura
-			int a = rng.nextInt(3)+1;
+			int a = rng.nextInt(3);
 			System.out.println("Uau! Você achou uma armadura com "+(a+1)+" de defesa");
 			if(a == 0) {
 				inside.add(new Armadura(a+1));
