@@ -236,7 +236,6 @@ public class Interaction {
 						operacao = read.nextInt();				
 					}	
 					Monstro monstro = monstros.get(operacao);
-					heroi.removeMagia(magia);
 					((MagiaAtaque) magia).setAlvo(monstro);
 					if(magia instanceof MagiaEmArea) {
 						((MagiaEmArea) magia).usarMagia(mapa);
@@ -245,14 +244,15 @@ public class Interaction {
 						((MagiaSingle) magia).usarMagia();
 					}
 					if(monstro.getPontosVida()<=0) monstro.death(mapa);
+					heroi.removeMagia(magia);
 				}
 				else {
 					System.out.println("Não há monstros para serem atacados");					
 				}
 			}
 			else if(magia instanceof MagiaHeal) {
-				heroi.removeMagia(magia);
 				((SimpleHeal) magia).usarMagia();
+				heroi.removeMagia(magia);
 			}
 			else {
 				ArrayList<Celula> celulaTeleporte = new ArrayList<Celula>();
@@ -280,8 +280,6 @@ public class Interaction {
 					Celula goTeleporte = celulaTeleporte.get(operacao);
 					mapa.trocaCel(heroi.getX(), heroi.getY(), goTeleporte.getX(), goTeleporte.getY());
 				}
-				
-				
 				heroi.removeMagia(magia);
 			}
 		}
