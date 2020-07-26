@@ -13,6 +13,7 @@ public class Monstro extends Unit implements Dropavel{
 	}
 	@Override
 	public void death(Mapa mapa) {
+		mapa.diminuiMonstros();
 		CelulaVazia vazia = new CelulaVazia(x,y);
 		mapa.setCelula(x, y, vazia);
 	}

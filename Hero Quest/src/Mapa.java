@@ -6,11 +6,12 @@ public class Mapa {
 	private int N;
 	private int M;
 	private Celula[][] grid;
+	private int qntMonstros = 14;
 	
 	public Mapa(int N, int M) {
 		this.N = N;
 		this.M = M;
-		grid = new Celula[N][M * 4+ 3];
+		grid = new Celula[N][M *4+ 3];
 	}
 	
 	void generateMap(Unit hero) {
@@ -51,7 +52,7 @@ public class Mapa {
 		grid[1][9] = new Armadilha(1,9);
 		grid[3][9] = new Tesouro(3,9);
 		grid[0][10] = new Goblin(0,10);
-		grid[1][10] = new Esqueleto(0,10);
+		grid[1][10] = new Esqueleto(1,10);
 		// sala 2
 		grid[3][13] = new Armadilha(3,13);
 		grid[0][14] = new Armadilha(0,14);
@@ -100,6 +101,18 @@ public class Mapa {
 	
 	public Celula getCelula(int x, int y) {
 		return this.grid[x][y];
+	}
+	
+	public int getQntMonstros() {
+		return qntMonstros;
+	}
+	
+	public void aumentaMonstros() {
+		qntMonstros++;
+	}
+	
+	public void diminuiMonstros() {
+		qntMonstros--;
 	}
 	
 	public Heroi getHeroi() {

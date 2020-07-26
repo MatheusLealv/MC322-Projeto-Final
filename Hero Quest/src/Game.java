@@ -14,6 +14,11 @@ public class Game {
 			mapa.printMap(heroi);
 			System.out.println("HP: "+heroi.getPontosVida());
 			Interaction.turnoHeroi(heroi, mapa);
+			if(mapa.getQntMonstros()==0) {
+				System.out.println("Bravo! Você foi capaz de derrotar todos os monstros! Você é um herói lendário!");
+				System.out.println("FIM");
+				break;
+			}
 			System.out.println("HP: "+heroi.getPontosVida());
 			if(heroi.isAlive() == false) {
 				System.out.println("morreu");
