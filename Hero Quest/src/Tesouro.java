@@ -1,4 +1,3 @@
-//MAMAAAAAE
 import java.util.*;
 public class Tesouro extends Celula{
 	public Tesouro(int x , int y) {
@@ -98,6 +97,7 @@ public class Tesouro extends Celula{
 			System.out.println("Uau! Uma poção! Você bebe ela e se sente mais vivo!");
 			((Heroi) PC).tomarPocao(new Pocao());
 		}
+		read.close();
 		return inside;
 	}
 	

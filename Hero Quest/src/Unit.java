@@ -20,7 +20,6 @@ public class Unit extends Celula{
 	}
 	
 	public void addArma(Arma arma) {
-		//LEMBRAR DE MELHORAR ISSO
 		int slot = 0;
 		for(int i = 0 ; i < armas.size() ; i ++) {
 			slot += armas.get(i).getSize() ; 
@@ -51,6 +50,7 @@ public class Unit extends Celula{
 					this.armas = newArmas;
 					this.numDadosAtaque += arma.getBonusDado();
 				}
+				read.close();;
 			}
 			else {
 				this.armas.add(arma);
@@ -63,7 +63,6 @@ public class Unit extends Celula{
 	}
 	
 	public void removeArma(Arma arma) {
-		//LEMBRAR DE MELHORAR
 		if(! (arma instanceof Punhal)) {
 			if(armas.contains(arma)) {
 				this.armas.remove(arma);
@@ -131,11 +130,21 @@ public class Unit extends Celula{
 	public void combate(Mapa mapa,Unit enemy, ArrayList<Arma> armas) {
 		DadosCombat dado = new DadosCombat();
 		ArrayList<Arma> armasUsadas = new ArrayList<Arma>();
-		int dadosAtaque = this.numDadosAtaque;
+		int dadosAtaque = 0;
 		int qtdCaveira = 0;
+		if(Math.abs(this.getX() - enemy.getX()) + Math.abs(this.getY() - enemy.getY()) <= 1) {
+			dadosAtaque = this.getNumDadosAtaque();
+		}
+		
+		for(Arma arma: this.getArmas()) {
+			if(!armas.contains(arma) && !(arma instanceof Punhal)) {
+				dadosAtaque -= arma.getBonusDado();
+			}
+		}
+				
 		for(Arma arma: armas) {
-			if(Math.abs(this.getX() - enemy.getX()) + Math.abs(this.getY() - enemy.getY()) <= arma.getAlcance()) {
-				dadosAtaque+=arma.getBonusDado();
+			if((arma instanceof Punhal) && ((this.getX() == enemy.getX() || this.getY() == enemy.getY()) && Math.abs(this.getX() - enemy.getX()) + Math.abs(this.getY() - enemy.getY()) <= arma.getAlcance())) {
+				dadosAtaque +=arma.getBonusDado();
 				armasUsadas.add(arma);
 			}
 		}
@@ -205,6 +214,7 @@ public class Unit extends Celula{
 	public void danoDireto(int dano) {
 		this.pontosVida -= dano;
 		System.out.println(this.getNome()+" recebeu "+dano+" de dano.");
+		if(this.pontosVida < 0) this.pontosVida = 0;
 	}
 	
 	public int getNumDadosAtaque() {

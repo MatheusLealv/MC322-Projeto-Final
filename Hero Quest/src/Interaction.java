@@ -22,14 +22,19 @@ public class Interaction {
 		while(true) {
 			switch(cls) {
 				case 0:
+					read.close();
 					return new Barbaro(name,0,0);
 				case 1:
+					read.close();
 					return new Anao(name,0,0);
 				case 2:
+					read.close();
 					return new Elfo(name,0,0);
 				case 3:
+					read.close();
 					return new Feiticeiro(name,0,0);
 				case 322: //Personagem secreto
+					read.close();
 					return new Kirito(name,0,0);
 				default:
 					System.out.println("Por favor digite um número válido");
@@ -50,7 +55,6 @@ public class Interaction {
 			System.out.println("Escolha Sua Ação:");
 			System.out.println("1-Arma 2-Magia 3-Procurar Tesouro");
 			String c = read.nextLine();
-			Celula[][] grid = mapa.getMapa();
 			if (c.equals("1")) {
 				realizarAtaque(mapa,heroi);
 				break;
@@ -72,7 +76,7 @@ public class Interaction {
 				System.out.println("Por favor digite uma ação válida");
 			}
 		}
-		
+		read.close();
 		//heroi.move(mapa, roll);
 	}
 	
@@ -125,7 +129,7 @@ public class Interaction {
 			}
 			
 		}
-		
+		read.close();
 	}
 	public static void realizarAtaque(Mapa mapa, Heroi heroi) {
 		Scanner read = new Scanner(System.in);
@@ -159,7 +163,6 @@ public class Interaction {
 		ArrayList<Monstro> monstros = new ArrayList<Monstro>();
 		for(int i = 0; i < qtdMax; i++) {
 			int x = heroi.getX() + dx[i], y = heroi.getY() + dy[i];
-			int distancia = Math.abs(x - heroi.getX()) + Math.abs(y - heroi.getY());
 			if(0 <= x && x < mapa.getN() && 0 <= y && y < mapa.getM()) {
 				Celula C = mapa.getCelula(x, y);
 				if(C instanceof Monstro) {
@@ -186,6 +189,7 @@ public class Interaction {
 		else {
 			System.out.println("Não há monstros para serem atacados");
 		}
+		read.close();
 	}
 	
 	public static void realizarMagia(Mapa mapa, Heroi heroi) {
@@ -282,6 +286,7 @@ public class Interaction {
 				}
 				heroi.removeMagia(magia);
 			}
+			read.close();
 		}
 		else {
 			System.out.println("Não há magias disponíveis");
