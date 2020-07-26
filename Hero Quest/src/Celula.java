@@ -22,7 +22,7 @@ public class Celula {
 	}
 	
 	public boolean isVisible(Mapa mapa, Celula C) {
-		
+		//return true;
 		if(!atrapalhaVisao(C)) {
 			return true;
 		}
