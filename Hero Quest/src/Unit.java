@@ -214,6 +214,7 @@ public class Unit extends Celula{
 	public void danoDireto(int dano) {
 		this.pontosVida -= dano;
 		System.out.println(this.getNome()+" recebeu "+dano+" de dano.");
+		if(this.pontosVida < 0) this.pontosVida = 0;
 	}
 	
 	public int getNumDadosAtaque() {
