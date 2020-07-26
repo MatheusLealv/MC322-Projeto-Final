@@ -230,7 +230,7 @@ public class Mapa {
 					else System.out.print(this.grid[i][j] + " ");
 				}
 				else{
-					System.out.print("@@ ");
+					System.out.print("?? ");
 				}
 			}
 			System.out.println();
