@@ -12,4 +12,6 @@ public class Armadura implements Dropavel{
 	public int getDefesa() {
 		return this.defesa;
 	}
+	
+	
 }
