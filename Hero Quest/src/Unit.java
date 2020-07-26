@@ -133,24 +133,27 @@ public class Unit extends Celula{
 		ArrayList<Arma> armasUsadas = new ArrayList<Arma>();
 		int dadosAtaque = this.numDadosAtaque;
 		int qtdCaveira = 0;
-		if( Math.abs(this.getY() - enemy.getY()) + Math.abs(this.getY() - enemy.getX()) <= 1) {
-			qtdCaveira = this.getNumDadosAtaque();
+
+		for(Arma arma: this.getArmas()) {
+			if(!armas.contains(arma) && !(arma instanceof Punhal)) {
+				dadosAtaque -= arma.getBonusDado();
+			}
 		}
+				
 		this.getNumDadosAtaque();
 		for(Arma arma: armas) {
-			if(Math.abs(this.getX() - enemy.getX()) + Math.abs(this.getY() - enemy.getY()) <= arma.getAlcance()) {
-				dadosAtaque+=arma.getBonusDado();
+			if( !((this.getX() == enemy.getX() || this.getY() == enemy.getY()) && Math.abs(this.getX() - enemy.getX()) + Math.abs(this.getY() - enemy.getY()) <= arma.getAlcance())) {
+				dadosAtaque -=arma.getBonusDado();
 				armasUsadas.add(arma);
 			}
 		}
-		if(this instanceof Heroi) {
-			//ataque
-			for(int i = 0; i < dadosAtaque; i++) {
-				if(dado.ehCaveira()) {
-					qtdCaveira ++;
-				}
+		//ataque
+		for(int i = 0; i < dadosAtaque; i++) {
+			if(dado.ehCaveira()) {
+				qtdCaveira ++;
 			}
 		}
+	
 		//o inimigo tentará se defender
 		int numDados = enemy.getNumDadosDefesa();
 		int qtdEscudo = 0;
