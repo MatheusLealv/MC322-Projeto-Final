@@ -133,7 +133,7 @@ public class Unit extends Celula{
 		ArrayList<Arma> armasUsadas = new ArrayList<Arma>();
 		int dadosAtaque = this.numDadosAtaque;
 		int qtdCaveira = 0;
-		if( Math.abs(this.getY() - enemy.getY()) <= 1) {
+		if( Math.abs(this.getY() - enemy.getY()) + Math.abs(this.getY() - enemy.getX()) <= 1) {
 			qtdCaveira = this.getNumDadosAtaque();
 		}
 		this.getNumDadosAtaque();
