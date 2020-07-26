@@ -121,6 +121,7 @@ public class Mapa {
 		//printMap();
 		Scanner read = new Scanner(System.in);
 		String c = "1";
+
 		while(!c.equals("0") && roll>0 && heroi.isAlive()) {
 			c = read.nextLine();
 			if (c.equals("W") || c.equals("w")) {
