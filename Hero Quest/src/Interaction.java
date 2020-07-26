@@ -42,33 +42,33 @@ public class Interaction {
 		roll += dado.roll();
 		mapa.moveHeroi(heroi, roll);
 
-			Scanner read = new Scanner(System.in);
-			while(true) {
-				System.out.println("Escolha Sua Ação:");
-				System.out.println("1-Arma 2-Magia 3-Procurar Tesouro");
-				int c = read.nextInt();
-				Celula[][] grid = mapa.getMapa();
-				if (c==1) {
-					realizarAtaque(mapa,heroi);
-					break;
-				} else
-				if (c==2) {
-					if(heroi.getMagias().isEmpty()) {
-						System.out.println("Você não possui magias");
-					} else if(!(heroi instanceof Magico)) {
-						System.out.println("Você não pode usar magias. Não tente isso novamente");
-					} else {
-						realizarMagia(mapa,heroi);
-						break;
-					}
-				} else
-				if (c==3) {
-					heroi.procurarTesouro(mapa);
-					break;
+		Scanner read = new Scanner(System.in);
+		while(true) {
+			System.out.println("Escolha Sua Ação:");
+			System.out.println("1-Arma 2-Magia 3-Procurar Tesouro");
+			int c = read.nextInt();
+			Celula[][] grid = mapa.getMapa();
+			if (c==1) {
+				realizarAtaque(mapa,heroi);
+				break;
+			} else
+			if (c==2) {
+				if(heroi.getMagias().isEmpty()) {
+					System.out.println("Você não possui magias");
+				} else if(!(heroi instanceof Magico)) {
+					System.out.println("Você não pode usar magias. Não tente isso novamente");
 				} else {
-					System.out.println("Por favor digite uma ação válida");
+					realizarMagia(mapa,heroi);
+					break;
 				}
+			} else
+			if (c==3) {
+				heroi.procurarTesouro(mapa);
+				break;
+			} else {
+				System.out.println("Por favor digite uma ação válida");
 			}
+		}
 		
 		//heroi.move(mapa, roll);
 	}
@@ -129,6 +129,11 @@ public class Interaction {
 		int[] dx = {1, -1, 0, 0, 2, -2, 0, 0};
 		int[] dy = {0, 0, 1, -1, 0, 0, 2, -2};
 		
+		int qtdMax = 4;
+		if(heroi.temEspadaLonga()) {
+			qtdMax = 8;
+		}
+		
 		int qtdPunhal = 0;
 		ArrayList<Arma> minhasArmas = new ArrayList<Arma>();
 		for(Arma arma: heroi.getArmas()) {
@@ -149,7 +154,7 @@ public class Interaction {
 		utilizarPunhal(mapa, heroi, punhaisUsaveis);
 			
 		ArrayList<Monstro> monstros = new ArrayList<Monstro>();
-		for(int i = 0; i < 4; i++) {
+		for(int i = 0; i < qtdMax; i++) {
 			int x = heroi.getX() + dx[i], y = heroi.getY() + dy[i];
 			int distancia = Math.abs(x - heroi.getX()) + Math.abs(y - heroi.getY());
 			if(0 <= x && x < mapa.getN() && 0 <= y && y < mapa.getM()) {

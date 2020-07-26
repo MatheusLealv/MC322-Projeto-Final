@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Unit extends Celula{
 	private int numDadosAtaque;
@@ -20,13 +21,41 @@ public class Unit extends Celula{
 	
 	public void addArma(Arma arma) {
 		//LEMBRAR DE MELHORAR ISSO
+		int slot = 0;
+		for(int i = 0 ; i < armas.size() ; i ++) {
+			slot += armas.get(i).getSize() ; 
+		}
 		if(!(arma instanceof Punhal)) {
-			if(armas.size() == 2) {
-				System.out.println("Você já possui duas armas");
-				return;
+			if((slot + arma.getSize()) > 2) {
+				System.out.println("Você não tem mãos suficientes para usar ambas as armas , suas armas atuais serão perdidas caso equipe a arma.");
+				System.out.println("Tem certeza que deseja equipar a arma? (1 = yes/0 = no)");
+				Scanner read = new Scanner(System.in);
+				int cls;
+				while(true) {
+					try {
+						cls = read.nextInt();
+						break;
+					} catch(Exception e) {
+						System.out.println("Por favor digite um número");
+					}
+				}
+				if(cls == 1) {
+					ArrayList<Arma> newArmas = new ArrayList<Arma>();
+					for(int j = 0 ; j < armas.size(); j ++) {
+						newArmas.add(armas.get(j));
+						if(!(armas.get(j) instanceof Punhal)) {
+							this.numDadosAtaque -= armas.get(j).getBonusDado();
+						}
+					}
+					newArmas.add(arma);
+					this.armas = newArmas;
+					this.numDadosAtaque += arma.getBonusDado();
+				}
 			}
-			this.armas.add(arma);
-			this.numDadosAtaque += arma.getBonusDado();
+			else {
+				this.armas.add(arma);
+				this.numDadosAtaque += arma.getBonusDado();
+			}
 		}
 		else {
 			armas.add(arma);
@@ -156,6 +185,14 @@ public class Unit extends Celula{
 		this.numDadosDefesa = numDadosDefesa;
 	}	
 	
+	public boolean temEspadaLonga() {
+		for(Arma arma: armas) {
+			if(arma instanceof EspadaLonga) {
+				return true;
+			}
+		}
+		return false;
+	}
 	public void aumentarVida(int x) {
 		this.pontosVida += x;
 	}
