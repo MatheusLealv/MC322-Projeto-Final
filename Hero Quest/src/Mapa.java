@@ -155,6 +155,7 @@ public class Mapa {
 			printMap(heroi);
 			roll--;
 		}
+		read.close();
 	}
 	
 
