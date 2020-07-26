@@ -63,7 +63,7 @@ public class Interaction {
 				}
 			} else
 			if (c==3) {
-				heroi.procurarTesouro(mapa);
+				heroi.procurarTesouro(mapa, heroi);
 				break;
 			} else {
 				System.out.println("Por favor digite uma ação válida");
