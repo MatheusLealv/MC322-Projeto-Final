@@ -58,6 +58,7 @@ public class Heroi extends Unit {
 			}
 			mapa.printMap(this);
 		}
+		read.close();
 	}
 	
 	public void procurarTesouro(Mapa mapa, Celula C, Heroi heroi) {
