@@ -122,6 +122,7 @@ public class Mapa {
 		Scanner read = new Scanner(System.in);
 		String c = "1";
 		while(!c.equals("0") && roll>0) {
+			System.out.println("HP: " + heroi.getPontosVida());
 			c = read.nextLine();
 			if (c.equals("W") || c.equals("w")) {
 				heroi.moveUp(this);

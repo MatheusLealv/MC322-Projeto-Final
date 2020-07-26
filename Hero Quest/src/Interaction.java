@@ -255,8 +255,34 @@ public class Interaction {
 				((SimpleHeal) magia).usarMagia();
 			}
 			else {
-				heroi.removeMagia(magia);
+				ArrayList<Celula> celulaTeleporte = new ArrayList<Celula>();
+				for(int ii = 0; ii < mapa.getN(); ii++) {
+					for(int j = 0; j < mapa.getM(); j++) {
+						if(heroi.isVisible(mapa, mapa.getCelula(ii, j)) && (mapa.getCelula(ii, j) instanceof CelulaVazia)) {
+							celulaTeleporte.add(mapa.getCelula(ii,  j));
+						}
+					}
+				}
+				if(celulaTeleporte.size() >= 1) {
+					System.out.println("Digite o número correspondente a celula que deseja teleportar");
+					int p = 0;
+					for(Celula celula: celulaTeleporte) {
+						System.out.println(p + " - " + celula.getX() + ", " + celula.getY());
+						++p;
+					}
+					
+					operacao = read.nextInt();
+					while(operacao < 0 || operacao >= celulaTeleporte.size()) {
+						System.out.println("Opção inválida! Digite novamente");
+						operacao = read.nextInt();
+					}
+					
+					Celula goTeleporte = celulaTeleporte.get(operacao);
+					mapa.trocaCel(heroi.getX(), heroi.getY(), goTeleporte.getX(), goTeleporte.getY());
+				}
 				
+				
+				heroi.removeMagia(magia);
 			}
 		}
 		else {
