@@ -139,14 +139,13 @@ public class Unit extends Celula{
 				armasUsadas.add(arma);
 			}
 		}
-		if(Math.abs(this.getX() - enemy.getX()) + Math.abs(this.getY() - enemy.getY()<= arma.getAlcance())) {
 			//ataque
 			for(int i = 0; i < dadosAtaque; i++) {
 				if(dado.ehCaveira()) {
 					qtdCaveira ++;
 				}
 			}
-		} 
+		 
 		//o inimigo tentará se defender
 		int numDados = enemy.getNumDadosDefesa();
 		int qtdEscudo = 0;
