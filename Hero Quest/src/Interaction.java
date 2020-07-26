@@ -45,7 +45,7 @@ public class Interaction {
 		mapa.moveHeroi(heroi, roll);
 
 		Scanner read = new Scanner(System.in);
-		while(true) {
+		while(heroi.isAlive()) {
 			System.out.println("HP: "+heroi.getPontosVida());
 			System.out.println("Escolha Sua Ação:");
 			System.out.println("1-Arma 2-Magia 3-Procurar Tesouro");
