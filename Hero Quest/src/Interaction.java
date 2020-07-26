@@ -49,13 +49,13 @@ public class Interaction {
 			System.out.println("HP: "+heroi.getPontosVida());
 			System.out.println("Escolha Sua Ação:");
 			System.out.println("1-Arma 2-Magia 3-Procurar Tesouro");
-			int c = read.nextInt();
+			String c = read.nextLine();
 			Celula[][] grid = mapa.getMapa();
-			if (c==1) {
+			if (c.equals("1")) {
 				realizarAtaque(mapa,heroi);
 				break;
 			} else
-			if (c==2) {
+			if (c.equals("2")) {
 				if(heroi.getMagias().isEmpty()) {
 					System.out.println("Você não possui magias");
 				} else if(!(heroi instanceof Magico)) {
@@ -65,7 +65,7 @@ public class Interaction {
 					break;
 				}
 			} else
-			if (c==3) {
+			if (c.equals("3")) {
 				heroi.procurarTesouro(mapa, heroi);
 				break;
 			} else {
