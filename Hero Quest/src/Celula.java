@@ -22,6 +22,7 @@ public class Celula {
 	}
 	
 	public boolean isVisible(Mapa mapa, Celula C) {
+		
 		if(!atrapalhaVisao(C)) {
 			return true;
 		}
@@ -44,6 +45,9 @@ public class Celula {
 		int minX = Math.min(this.x, C.getX());
 		int maxX = Math.max(this.x, C.getX());
 		
+		if(C.getX() == 2 && C.getY() == 11) {
+			System.out.println("CAGADA");
+		}
 		for(int j = minX + 1; j < maxX; j++) {
 			Celula cel = mapa.getCelula(j, this.y);
 			if( (cel instanceof Muro) || (cel instanceof Porta) || (cel instanceof Monstro)) {

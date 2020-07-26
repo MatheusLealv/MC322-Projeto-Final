@@ -51,7 +51,7 @@ public class Mapa {
 		grid[1][9] = new Armadilha(1,9);
 		grid[3][9] = new Tesouro(3,9);
 		grid[0][10] = new Goblin(0,10);
-		grid[1][10] = new Esqueleto(0,10);
+		grid[1][10] = new Esqueleto(1,10);
 		// sala 2
 		grid[3][13] = new Armadilha(3,13);
 		grid[0][14] = new Armadilha(0,14);
