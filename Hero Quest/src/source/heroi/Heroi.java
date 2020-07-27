@@ -31,7 +31,7 @@ public class Heroi extends Unit {
 	}
 	public void diminuirVida(int dano) {
 		int danoRecebido = this.getPontosVida() - Math.max(0,dano-this.armadura.getDefesa());
-		if(dano > 0)System.out.println(this.getNome()+" recebeu "+danoRecebido+" de dano.");
+		if(danoRecebido > 0)System.out.println(this.getNome()+" recebeu "+danoRecebido+" de dano.");
 		this.atualizarPV(danoRecebido);
 	}
 	public void atualizarArmadura(Armadura armadura) {
@@ -73,12 +73,9 @@ public class Heroi extends Unit {
 			}
 			mapa.printMap(this);
 		}
-		read.close();
 	}
 	
 	public void procurarTesouro(Mapa mapa, Celula C, Heroi heroi) {
-		//PODE ENCONTRAR UM MONSTRO
-		//O QUE FAZER QUANDO ENCONTRAR UM MONSTRO ?
 		
 		
 		if(C instanceof Tesouro) {
