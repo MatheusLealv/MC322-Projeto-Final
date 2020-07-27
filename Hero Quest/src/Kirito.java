@@ -6,8 +6,9 @@ public class Kirito extends Heroi implements Magico {
 		super(nome,8,5,10,6,new ArrayList<Arma>(),new ArrayList<Magia>(),posx,posy);
 		addArma(new EspadaCurta());
 		addArma(new EspadaCurta());
-		
 		addMagia(new SimpleHeal(this));
+		addMagia(new MagicMissile(this));
+		addMagia(new Fireball(this));
 		addMagia(new Teleport(this));
 	}
 	

@@ -20,7 +20,6 @@ public class Unit extends Celula{
 	}
 	
 	public void addArma(Arma arma) {
-		//LEMBRAR DE MELHORAR ISSO
 		int slot = 0;
 		for(int i = 0 ; i < armas.size() ; i ++) {
 			slot += armas.get(i).getSize() ; 
@@ -64,7 +63,6 @@ public class Unit extends Celula{
 	}
 	
 	public void removeArma(Arma arma) {
-		//LEMBRAR DE MELHORAR
 		if(! (arma instanceof Punhal)) {
 			if(armas.contains(arma)) {
 				this.armas.remove(arma);
@@ -86,6 +84,9 @@ public class Unit extends Celula{
 	public void removeMagia(Magia magia) {
 		if(magias.contains(magia)) {
 			this.magias.remove(magia);
+		}
+		else {
+			System.out.println("Você não possui essa magia");
 		}
 	}
 	
@@ -131,7 +132,6 @@ public class Unit extends Celula{
 		ArrayList<Arma> armasUsadas = new ArrayList<Arma>();
 		int dadosAtaque = 0;
 		int qtdCaveira = 0;
-
 		if(Math.abs(this.getX() - enemy.getX()) + Math.abs(this.getY() - enemy.getY()) <= 1) {
 			dadosAtaque = this.getNumDadosAtaque();
 		}
@@ -148,13 +148,13 @@ public class Unit extends Celula{
 				armasUsadas.add(arma);
 			}
 		}
-		//ataque
-		for(int i = 0; i < dadosAtaque; i++) {
-			if(dado.ehCaveira()) {
-				qtdCaveira ++;
+			//ataque
+			for(int i = 0; i < dadosAtaque; i++) {
+				if(dado.ehCaveira()) {
+					qtdCaveira ++;
+				}
 			}
-		}
-	
+		 
 		//o inimigo tentará se defender
 		int numDados = enemy.getNumDadosDefesa();
 		int qtdEscudo = 0;

@@ -15,7 +15,6 @@ public class Mapa {
 	}
 	
 	void generateMap(Unit hero) {
-		// sala 1
 		for(int i = 0 ; i < N ; i ++) {
 			for(int j = 0 ; j < 4 * M + 3 ; j ++) {
 				grid[i][j] = new CelulaVazia(i,j);
@@ -123,8 +122,6 @@ public class Mapa {
 				}
 			}
 		}
-		// Se não existir 
-		System.out.println("Deu erro");
 		return null;
 	}
 	

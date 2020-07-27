@@ -1,4 +1,3 @@
-//MAMAAAAAE
 import java.util.*;
 public class Tesouro extends Celula{
 	public Tesouro(int x , int y) {

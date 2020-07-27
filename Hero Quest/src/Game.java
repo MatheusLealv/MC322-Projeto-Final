@@ -2,8 +2,7 @@
 public class Game {
 
 	public static void start() {		
-		// ------ TESTES -------
-		int N = 5, M = 5; // MODIFICAR
+		int N = 5, M = 5;
 		Mapa mapa = new Mapa(N, M);
 				
 		Heroi heroi = Interaction.criarPersonagem();
