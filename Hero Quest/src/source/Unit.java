@@ -63,7 +63,6 @@ public class Unit extends Celula{
 					this.armas = newArmas;
 					this.numDadosAtaque += arma.getBonusDado();
 				}
-				read.close();;
 			}
 			else {
 				this.armas.add(arma);
