@@ -170,6 +170,13 @@ public class Mapa {
         boolean[][] vis = new boolean[N][M];
         for(int i = 0 ; i < N ; i ++) {
             for(int j = 0 ; j < M ; j ++) {
+                if((grid[i][j] instanceof Monstro)) {
+                    ((Monstro)grid[i][j]).attackHero(this);
+                }
+            }
+        }
+        for(int i = 0 ; i < N ; i ++) {
+            for(int j = 0 ; j < M ; j ++) {
             	if(vis[i][j] == true) 
             		continue;
             	
@@ -185,13 +192,7 @@ public class Mapa {
                 }
             }
         }
-        for(int i = 0 ; i < N ; i ++) {
-            for(int j = 0 ; j < M ; j ++) {
-                if((grid[i][j] instanceof Monstro)) {
-                    ((Monstro)grid[i][j]).attackHero(this);
-                }
-            }
-        }
+ 
     }
 	//o monstro na Celula "from" irá se mover em direção ao herói na posição "to"
 	public Pair moveToHero(Monstro from, Heroi to) {
