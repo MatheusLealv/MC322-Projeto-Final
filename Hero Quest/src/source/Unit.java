@@ -2,6 +2,7 @@ package source;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import source.heroi.Heroi;
 import source.items.Arma;
 import source.items.EspadaLonga;
 import source.items.Punhal;
@@ -12,6 +13,7 @@ import source.magia.SimpleHeal;
 import source.magia.Teleport;
 import source.mapa.Celula;
 import source.mapa.Mapa;
+import source.monstro.Monstro;
 import source.utilities.DadosCombat;
 
 public class Unit extends Celula{
@@ -97,9 +99,6 @@ public class Unit extends Celula{
 		if(magias.contains(magia)) {
 			this.magias.remove(magia);
 		}
-		else {
-			System.out.println("Você não possui essa magia");
-		}
 	}
 	
 	public void usarTeleporte(Mapa mapa, Celula C) {
@@ -179,6 +178,10 @@ public class Unit extends Celula{
 		int dano = qtdCaveira - qtdEscudo;
 		if(dano < 0) dano = 0;
 		enemy.diminuirVida(dano);
+		
+		if(dano > 0 && (this instanceof Monstro) && (enemy instanceof Heroi)) {
+			System.out.println(this.getNome()+" atacou você");
+		}
 		
 		if(enemy.getPontosVida()<=0) {
 			enemy.death(mapa);

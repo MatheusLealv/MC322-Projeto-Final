@@ -30,15 +30,9 @@ public class Heroi extends Unit {
 		return this.nome;
 	}
 	public void diminuirVida(int dano) {
-<<<<<<< HEAD
 		int danoRecebido = Math.max(0,dano-this.armadura.getDefesa());
 		if(danoRecebido > 0)System.out.println(this.getNome()+" recebeu "+danoRecebido+" de dano.");
 		this.atualizarPV(this.getPontosVida() - danoRecebido);
-=======
-		int danoRecebido = this.getPontosVida() - Math.max(0,dano-this.armadura.getDefesa());
-		if(danoRecebido > 0)System.out.println(this.getNome()+" recebeu "+danoRecebido+" de dano.");
-		this.atualizarPV(danoRecebido);
->>>>>>> 537faf6167e890a14be8c50754e0fcb94f4e6186
 	}
 	public void atualizarArmadura(Armadura armadura) {
 		if(armadura.getDefesa()>this.armadura.getDefesa()) {
