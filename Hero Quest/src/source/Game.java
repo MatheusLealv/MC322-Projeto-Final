@@ -5,7 +5,8 @@ import source.mapa.Mapa;
 
 public class Game {
 
-	public static void start() {		
+	public static void start() {
+		Interaction.tutorial();
 		int N = 5, M = 5;
 		Mapa mapa = new Mapa(N, M);
 				

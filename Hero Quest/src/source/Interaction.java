@@ -314,4 +314,24 @@ public class Interaction {
 	public static void turnoMonstros(Mapa mapa) {
 		mapa.monstroTurno();
 	}
+	
+	public static void tutorial() {
+		System.out.println(" ------ TUTORIAL -----");
+		System.out.println("   >  Após escolher a classe do seu herói, ele será criado na primeira celula do mapa");
+		System.out.println("   >  Você pode se movimentar com wasd do teclado, e pode encerrar a movimentação com o caractere ”0” ");
+		System.out.println("   >  Você não pode se mover pra uma célula ocupada por um monstro, um tesouro ou um muro.");
+		System.out.println("   >  No mapa ”??” representa algo não visível.");
+		System.out.println("   >  No mapa ”..” representa uma célula visível possivelmente vazia(pode ser uma armadilha ou um tesouro também.");
+		System.out.println("   >  No mapa ”BA”, ”AN”, ”EL”, e ”FE” representam seu herói dependendo da sua classe.");
+		System.out.println("   >  No mapa ”ES”, ”EM” e ”GO” representam monstros.");
+		System.out.println("   >  No mapa ”BA” significa bárbaro.");
+		System.out.println("   >  No mapa ”AN” significa anão.");
+		System.out.println("   >  No mapa ”EL” significa elfo.");
+		System.out.println("   >  No mapa ”FE” significa feiticeiro");
+		System.out.println("   >  No mapa ”ES” significa esqueleto.");
+		System.out.println("   >  No mapa ”EM” significa esqueleto mago.");
+		System.out.println("   >  No mapa ”GO” significa goblin.");
+		System.out.println("   >  No mapa ”##” representa uma parede.");
+		System.out.println("   >  No mapa ”PP” representa uma porta.");
+	}
 }
