@@ -22,19 +22,14 @@ public class Interaction {
 		while(true) {
 			switch(cls) {
 				case 0:
-					read.close();
 					return new Barbaro(name,0,0);
 				case 1:
-					read.close();
 					return new Anao(name,0,0);
 				case 2:
-					read.close();
 					return new Elfo(name,0,0);
 				case 3:
-					read.close();
 					return new Feiticeiro(name,0,0);
 				case 322: //Personagem secreto
-					read.close();
 					return new Kirito(name,0,0);
 				default:
 					System.out.println("Por favor digite um número válido");
@@ -76,7 +71,7 @@ public class Interaction {
 				System.out.println("Por favor digite uma ação válida");
 			}
 		}
-		read.close();
+		//read.close();
 		//heroi.move(mapa, roll);
 	}
 	
@@ -129,7 +124,7 @@ public class Interaction {
 			}
 			
 		}
-		read.close();
+		//read.close();
 	}
 	public static void realizarAtaque(Mapa mapa, Heroi heroi) {
 		Scanner read = new Scanner(System.in);
@@ -189,7 +184,7 @@ public class Interaction {
 		else {
 			System.out.println("Não há monstros para serem atacados");
 		}
-		read.close();
+		//read.close();
 	}
 	
 	public static void realizarMagia(Mapa mapa, Heroi heroi) {
@@ -286,7 +281,7 @@ public class Interaction {
 				}
 				heroi.removeMagia(magia);
 			}
-			read.close();
+			//read.close();
 		}
 		else {
 			System.out.println("Não há magias disponíveis");
